@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/red_netflix</item>
+        <item name="colorPrimaryDark">@color/red_netflix</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="etStyle" >
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingStart">30dp</item>
+        <item name="android:paddingEnd">30dp</item>
+    </style>
+
+</resources>

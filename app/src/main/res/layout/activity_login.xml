@@ -24,6 +24,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="64dp"
+        android:elevation="4dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Usuario"
@@ -38,6 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
+        android:elevation="4dp"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Contraseña"
@@ -50,11 +52,15 @@
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="Ingresar"
-        android:background="@drawable/bg_button"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        android:text="Iniciar Sesión"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_edittext"
+        android:backgroundTint="@color/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

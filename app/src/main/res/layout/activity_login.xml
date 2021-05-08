@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/ic_logo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txt_user"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="64dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/txt_pass"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -45,12 +45,12 @@
         android:hint="Contraseña"
         android:paddingHorizontal="15dp"
         android:background="@drawable/bg_edittext"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_user"
+        app:layout_constraintStart_toStartOf="@+id/txt_user"
+        app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/sign_button"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="32dp"
@@ -60,7 +60,7 @@
         android:background="@drawable/bg_edittext"
         android:backgroundTint="@color/button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_user"
+        app:layout_constraintStart_toStartOf="@+id/txt_user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

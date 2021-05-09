@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "170230908034",
+    "project_id": "smartreports-880cd",
+    "storage_bucket": "smartreports-880cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170230908034:android:40c047957953ceab39209b",
+        "android_client_info": {
+          "package_name": "com.example.smartreports"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170230908034-q5k4id3l95nmoafgme66es3da3cjpkb4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrIZ4EfeazqlJ8dTvhi2fbmYqnZ9dxlrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170230908034-q5k4id3l95nmoafgme66es3da3cjpkb4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

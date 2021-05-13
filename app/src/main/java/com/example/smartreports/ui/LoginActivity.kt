@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.smartreports.MainActivity
 import com.example.smartreports.R
+import com.example.smartreports.users.UsersActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -43,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("tag", it.isSuccessful.toString())
                             if (it.isSuccessful) {
                                 Toast.makeText(this, "ingresando", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, MainActivity::class.java)
+                                val intent = Intent(this, UsersActivity::class.java)
                                 /*Seteamos los flags al intent para que inicie una nueva actividad
                                  sin posibilidad de regresar al activity anterior*/
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

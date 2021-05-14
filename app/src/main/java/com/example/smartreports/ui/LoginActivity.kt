@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
                             if (it.isSuccessful) {
                                 Toast.makeText(this, "ingresando", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this, UsersActivity::class.java)
+                                intent.putExtra("email", user.text.toString())
                                 /*Seteamos los flags al intent para que inicie una nueva actividad
                                  sin posibilidad de regresar al activity anterior*/
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

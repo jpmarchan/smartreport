@@ -11,11 +11,12 @@ import androidx.appcompat.app.AlertDialog
 import com.example.smartreports.MainActivity
 import com.example.smartreports.R
 import com.example.smartreports.users.UsersActivity
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
-    lateinit var user: EditText
+    lateinit var user: TextInputEditText
     lateinit var pass: EditText
     lateinit var btn: Button
     var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
@@ -58,11 +59,11 @@ class LoginActivity : AppCompatActivity() {
                             }
                         }
                 }else{
-                    Toast.makeText(applicationContext, "valid email address", Toast.LENGTH_SHORT).show()
+                    user.error = "correo invalido"
                 }
 
             }else {
-                Toast.makeText(this, "Ingrese los datos", Toast.LENGTH_SHORT).show()
+                user.error = "Campos requeridos"
             }
 
         }

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_secundary" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_user"
         android:layout_width="0dp"
         android:layout_height="60dp"

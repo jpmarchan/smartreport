@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.users.UserCreateActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="250dp"
+        android:text="Registro único"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="305dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:text="Este registro debe ser validado por un agente del centro de salud."
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameUserRegister"
+        android:layout_width="130dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/bg_edittext"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Nombres"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/lastnameUserRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/lastnameUserRegister"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_edittext"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailUserRegister"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/lastnameUserRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/dniUserRegister" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/phoneUserRegister"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Nº de Celular"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/lastnameUserRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/emailUserRegister" />
+
+    <Button
+        android:id="@+id/btnUserRegister"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_button"
+        android:text="Registrar"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneUserRegister" />
+
+    <TextView
+        android:id="@+id/existAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ya tengo cuenta"
+        android:textColor="#84B6F4"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnUserRegister"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/btnUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnUserRegister" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dniUserRegister"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Nro de DNI"
+        android:inputType="number"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/lastnameUserRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/nameUserRegister" />
+</androidx.constraintlayout.widget.ConstraintLayout>

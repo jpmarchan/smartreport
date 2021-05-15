@@ -6,22 +6,24 @@ import androidx.appcompat.app.AppCompatActivity
 
 open class BaseActivity: AppCompatActivity() {
 
+    private val mIntent = Intent()
+
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     fun goTo(targetClass: Class<*>, isCleared: Boolean = false, extraLabel: String = "",
              extraData: String = "") {
-        val intent = Intent(this, targetClass.javaClass)
+        mIntent.setClass(this, targetClass)
         if (isCleared) {
             // use intent.apply {}
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         if (extraData.isNotEmpty()) {
-            intent.putExtra(extraLabel, extraData)
+            mIntent.putExtra(extraLabel, extraData)
         }
-        startActivity(intent)
+        startActivity(mIntent)
     }
 }

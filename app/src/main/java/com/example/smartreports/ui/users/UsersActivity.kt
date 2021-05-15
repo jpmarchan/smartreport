@@ -1,14 +1,14 @@
-package com.example.smartreports.users
+package com.example.smartreports.ui.users
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smartreports.R
+import com.example.smartreports.ui.BaseActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
-
-class UsersActivity : AppCompatActivity() {
+class UsersActivity : BaseActivity() {
 
     lateinit var btn_get_users: Button
     private val db = FirebaseFirestore.getInstance()
@@ -21,7 +21,6 @@ class UsersActivity : AppCompatActivity() {
         val email:String = bundle?.getString("email").toString()
         btn_get_users = findViewById(R.id.get_button)
         getUsers(email)
-
     }
 
     fun getUsers(email: String){
@@ -29,13 +28,9 @@ class UsersActivity : AppCompatActivity() {
 
             db.collection("Users").document(email)
                 .get().addOnSuccessListener {
-
                     documentSnapshot ->
-                    Toast.makeText(this, documentSnapshot.get("name").toString(), Toast.LENGTH_SHORT).show()
-
+                    showToast(documentSnapshot.get("name").toString())
                 }
-
-
         }
     }
 

@@ -3,10 +3,13 @@ package com.example.smartreports.ui
 import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 open class BaseActivity: AppCompatActivity() {
 
     private val mIntent = Intent()
+    val db = FirebaseFirestore.getInstance()
+
 
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

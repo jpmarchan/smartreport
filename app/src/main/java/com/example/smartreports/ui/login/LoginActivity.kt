@@ -46,18 +46,9 @@ class LoginActivity : BaseActivity() {
                             user.text.toString(),
                             pass.text.toString()
                         ).addOnCompleteListener {
-                            Log.d("tag", it.isSuccessful.toString())
                             if (it.isSuccessful) {
-                                 val intent = Intent(this, UsersActivity::class.java)
-                                intent.putExtra("email", user.text.toString())
-                                /*Seteamos los flags al intent para que inicie una nueva actividad
--                                 sin posibilidad de regresar al activity anterior*/
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                //Iniciamos la actividad mediante el intent
-                                 startActivity(intent)
-                                 showToast("Ingresando...")
+                                goTo(UsersActivity::class.java, true, "email", user.text.toString())
+                                showToast("Ingresando...")
                             } else {
                                 showAlert()
                             }
@@ -87,7 +78,7 @@ class LoginActivity : BaseActivity() {
 
     fun goToRegister(){
         goregister.setOnClickListener {
-            startActivity(Intent(this, UserCreateActivity::class.java))
+            goTo(UserCreateActivity::class.java)
         }
 
     }

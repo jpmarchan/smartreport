@@ -21,9 +21,9 @@
         android:id="@+id/txt_user"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="76dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/bg_edittext"
         android:elevation="4dp"
         android:ems="10"
@@ -52,8 +52,8 @@
 
     <Button
         android:id="@+id/sign_button"
-        android:layout_width="283dp"
-        android:layout_height="60dp"
+        android:layout_width="356dp"
+        android:layout_height="49dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"

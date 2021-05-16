@@ -11,8 +11,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class UsersActivity : BaseActivity() {
 
     lateinit var btn_get_users: Button
-    private val db = FirebaseFirestore.getInstance()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

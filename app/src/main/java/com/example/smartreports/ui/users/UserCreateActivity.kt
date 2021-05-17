@@ -44,7 +44,7 @@ class UserCreateActivity : BaseActivity() {
                     "lastname" to lastNameCreate.text.toString(),
                     "phone" to phoneCreate.text.toString(),
                     "rol" to "paciente",
-                    "status" to false,
+                    "status" to "0",
                     "dni" to dniCreate.text.toString()
                 )
             )

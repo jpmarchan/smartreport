@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.example.smartreports.R
 import com.example.smartreports.ui.BaseActivity
+import com.example.smartreports.ui.patient.HomeActivity
 import com.example.smartreports.ui.users.UserCreateActivity
-import com.example.smartreports.ui.users.UsersActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
@@ -47,8 +47,17 @@ class LoginActivity : BaseActivity() {
                             pass.text.toString()
                         ).addOnCompleteListener {
                             if (it.isSuccessful) {
-                                goTo(UsersActivity::class.java, true, "email", user.text.toString())
-                                showToast("Ingresando...")
+                                db.collection("Users").document(user.text.toString())
+                                    .get().addOnSuccessListener {
+                                            documentSnapshot ->
+                                        var status = false
+                                        status = documentSnapshot.get("status").toString().toBoolean()
+                                        if(status){
+                                            goTo(HomeActivity::class.java, true, "email", user.text.toString())
+                                        }else{
+                                            showToast("Aun no tienes la aprobacion para ingresar.")
+                                        }
+                                    }
                             } else {
                                 showAlert()
                             }
@@ -60,9 +69,7 @@ class LoginActivity : BaseActivity() {
                 user.error = "Campos requeridos"
                 pass.error = "Campos requeridos"
             }
-
         }
-
     }
 
 

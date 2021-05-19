@@ -63,7 +63,7 @@ class HomeActivity : BaseActivity() {
         db.collection("Users").document(email)
             .get().addOnSuccessListener {
                     documentSnapshot ->
-                setName.setText(documentSnapshot.get("name").toString())
+                setName.text = documentSnapshot.get("name").toString()
             }
     }
 }

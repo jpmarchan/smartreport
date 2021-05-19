@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,7 +25,6 @@
         android:layout_marginTop="72dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/bg_edittext"
-        android:elevation="4dp"
         android:ems="10"
         android:hint="Correo"
         android:inputType="textEmailAddress"
@@ -41,7 +40,6 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/bg_edittext"
-        android:elevation="4dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -50,23 +48,32 @@
         app:layout_constraintStart_toStartOf="@+id/txt_user"
         app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
+    <CheckBox
+        android:id="@+id/cbRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Recuerdame"
+        app:layout_constraintEnd_toEndOf="@+id/txt_pass"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
+
     <Button
-        android:id="@+id/sign_button"
+        android:id="@+id/signin_button"
         android:layout_width="0dp"
         android:layout_height="49dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/bg_button"
         android:text="Iniciar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txt_user"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/txt_user"
-        app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
+        app:layout_constraintTop_toBottomOf="@+id/cbRemember" />
 
     <TextView
-        android:id="@+id/goToRegis"
+        android:id="@+id/signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -74,9 +81,8 @@
         android:text="Solicitar registrarme"
         android:textColor="#84B6F4"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/sign_button"
-        app:layout_constraintStart_toStartOf="@+id/sign_button"
-        app:layout_constraintTop_toBottomOf="@+id/sign_button" />
-
+        app:layout_constraintEnd_toEndOf="@+id/signin_button"
+        app:layout_constraintStart_toStartOf="@+id/signin_button"
+        app:layout_constraintTop_toBottomOf="@+id/signin_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

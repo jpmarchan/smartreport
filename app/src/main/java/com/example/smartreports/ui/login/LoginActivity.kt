@@ -78,12 +78,12 @@ class LoginActivity : BaseActivity() {
 
     private fun signInWithFirebase() {
         signInButton.setOnClickListener {
-            showDialogProgress("Autenticando con el servidor")
             user = etUser.text.toString()
             pass = etPass.text.toString()
 
             if (user.isNotEmpty() && pass.isNotEmpty()) {
                 if (user.trim { it <= ' ' }.matches(emailPattern.toRegex())) {
+                    showDialogProgress("Autenticando con el servidor")
                     FirebaseAuth.getInstance()
                         .signInWithEmailAndPassword(user, pass).addOnCompleteListener {
                             if (it.isSuccessful) {
@@ -112,8 +112,12 @@ class LoginActivity : BaseActivity() {
                     etUser.error = "Correo inválido"
                 }
             } else {
-                etUser.error = "Campos requeridos"
-                etPass.error = "Campos requeridos"
+                if(user.isEmpty()){
+                    etUser.error = "Campos requeridos"
+                }
+                if(pass.isEmpty()){
+                    etPass.error = "Campos requeridos"
+                }
             }
         }
     }

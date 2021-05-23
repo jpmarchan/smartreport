@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 
 object Memory {
 
+    var userName: String = ""
+
     private lateinit var sharedPref: SharedPreferences
 
     fun initMemory(context: Context) {

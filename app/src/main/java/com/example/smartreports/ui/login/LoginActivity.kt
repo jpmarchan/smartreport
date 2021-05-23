@@ -3,17 +3,23 @@ package com.example.smartreports.ui.login
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.smartreports.R
+import com.example.smartreports.data.sign.Api
+import com.example.smartreports.data.sign.SignInParams
+import com.example.smartreports.data.sign.SignInResponse
 import com.example.smartreports.ui.BaseActivity
 import com.example.smartreports.ui.patient.HomeActivity
 import com.example.smartreports.ui.users.UserCreateActivity
 import com.example.smartreports.utils.Logger
 import com.example.smartreports.utils.Memory
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.FirebaseAuth
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+const val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
 class LoginActivity : BaseActivity() {
 
@@ -22,7 +28,6 @@ class LoginActivity : BaseActivity() {
     private lateinit var signInButton: Button
     private lateinit var signUpButton: TextView
     private lateinit var cbRemember: CheckBox
-    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
     private lateinit var user: String
     private lateinit var pass: String
@@ -35,7 +40,7 @@ class LoginActivity : BaseActivity() {
         Memory.initMemory(this)
 
         bind()
-        signInWithFirebase()
+        signInWithServer()
         onClickEvents()
     }
 
@@ -76,49 +81,56 @@ class LoginActivity : BaseActivity() {
         }
     }
 
-    private fun signInWithFirebase() {
+    private fun signInWithServer() {
         signInButton.setOnClickListener {
             user = etUser.text.toString()
             pass = etPass.text.toString()
 
-            if (user.isNotEmpty() && pass.isNotEmpty()) {
-                if (user.trim { it <= ' ' }.matches(emailPattern.toRegex())) {
-                    showDialogProgress("Autenticando con el servidor")
-                    FirebaseAuth.getInstance()
-                        .signInWithEmailAndPassword(user, pass).addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                db.collection("Users").document(user)
-                                    .get().addOnSuccessListener { documentSnapshot ->
-                                        val status =
-                                            documentSnapshot.get("status").toString().toBoolean()
-                                        if (status) {
-                                            if (cbRemember.isChecked) {
-                                                Memory.saveInMemory("user", user)
-                                                Memory.saveInMemory("pass", pass)
-                                            } else {
-                                                Memory.delete("user")
-                                                Memory.delete("pass")
-                                            }
-                                            goTo(HomeActivity::class.java, true, "email", user)
-                                        } else {
-                                            showToast("Aun no tienes la aprobacion para ingresar.")
-                                        }
-                                    }
+            if (user.isEmpty()) {
+                etUser.error = "Ingrese un correo válido"
+                return@setOnClickListener
+            }
+            if (pass.isEmpty()) {
+                etPass.error = "Ingrese una contraseña"
+                return@setOnClickListener
+            }
+
+            showDialogProgress("Autenticando con el servidor...")
+            val signInParams = SignInParams(user, pass)
+            Logger.d("signInParams: $signInParams")
+            Api.retrofitService.signIn(SignInParams(user, pass)).enqueue(object :
+                Callback<SignInResponse> {
+                override fun onResponse(call: Call<SignInResponse>, response: Response<SignInResponse>) {
+                    if (response.isSuccessful) {
+                        response.body()?.let {
+                            if (it.response) {
+                                Memory.userName = it.userName?: ""
+                                if (cbRemember.isChecked) {
+                                    Memory.saveInMemory("user", user)
+                                    Memory.saveInMemory("pass", pass)
+                                } else {
+                                    Memory.delete("user")
+                                    Memory.delete("pass")
+                                }
+                                goTo(HomeActivity::class.java, true)
                             } else {
+                                dismissDialog()
                                 showAlert()
                             }
                         }
-                } else {
-                    etUser.error = "Correo inválido"
+                        dismissDialog()
+                        showAlert()
+                    } else {
+                        dismissDialog()
+                        showAlert()
+                    }
                 }
-            } else {
-                if(user.isEmpty()){
-                    etUser.error = "Campos requeridos"
+
+                override fun onFailure(call: Call<SignInResponse>, t: Throwable) {
+                    dismissDialog()
+                    showAlert()
                 }
-                if(pass.isEmpty()){
-                    etPass.error = "Campos requeridos"
-                }
-            }
+            })
         }
     }
 
@@ -130,4 +142,8 @@ class LoginActivity : BaseActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+}
+
+fun String.isAValidEmail(): Boolean {
+    return this.matches(emailPattern.toRegex())
 }

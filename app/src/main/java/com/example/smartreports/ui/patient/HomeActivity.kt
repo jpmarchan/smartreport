@@ -1,13 +1,12 @@
 package com.example.smartreports.ui.patient
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartreports.R
 import com.example.smartreports.adapters.HistorPatientAdapter
 import com.example.smartreports.ui.BaseActivity
+import com.example.smartreports.utils.Memory
 
 data class Reports(val name: String = "", val image: String = "", val description: String = "")
 
@@ -21,49 +20,42 @@ class HomeActivity : BaseActivity() {
         setContentView(R.layout.activity_home)
         recycler = findViewById(R.id.recyclerView)
         setName = findViewById(R.id.setName)
+        setName.text = Memory.userName
 
-        val bundle = intent.extras
-        val email:String = bundle?.getString("email").toString()
-        getUsers(email)
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
 
-        configurarRecycler()
-
+        loadFakeData()
+        setupRecycler()
     }
-    private fun configurarRecycler(){
+
+    private fun loadFakeData(){
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+        dataReports.add(
+            Reports()
+        )
+    }
+
+    private fun setupRecycler(){
         val adapter = HistorPatientAdapter(dataReports, this)
         recycler.adapter = adapter
-    }
-
-    fun getUsers(email: String){
-
-        db.collection("Users").document(email)
-            .get().addOnSuccessListener {
-                    documentSnapshot ->
-                setName.text = documentSnapshot.get("name").toString()
-            }
     }
 }

@@ -24,6 +24,12 @@ class UserCreateActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_create)
+        createUser()
+        bing()
+
+    }
+
+    fun bing(){
         nameCreate = findViewById(R.id.nameUserRegister)
         lastNameCreate = findViewById(R.id.lastnameUserRegister)
         dniCreate = findViewById(R.id.dniUserRegister)
@@ -32,8 +38,6 @@ class UserCreateActivity : BaseActivity() {
         passCreate = findViewById(R.id.passCreate)
         btnCreate = findViewById(R.id.btnUserRegister)
         existAccount = findViewById(R.id.existAccount)
-
-        createUser()
 
     }
 

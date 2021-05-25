@@ -103,16 +103,21 @@ class LoginActivity : BaseActivity() {
                 override fun onResponse(call: Call<SignInResponse>, response: Response<SignInResponse>) {
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            if (it.response) {
-                                Memory.userName = it.userName?: ""
-                                if (cbRemember.isChecked) {
-                                    Memory.saveInMemory("user", user)
-                                    Memory.saveInMemory("pass", pass)
-                                } else {
-                                    Memory.delete("user")
-                                    Memory.delete("pass")
+                            if (it.response && it.status) {
+                                if(it.status){
+                                    Memory.userName = it.userName?: ""
+                                    if (cbRemember.isChecked) {
+                                        Memory.saveInMemory("user", user)
+                                        Memory.saveInMemory("pass", pass)
+                                    } else {
+                                        Memory.delete("user")
+                                        Memory.delete("pass")
+                                    }
+                                    goTo(HomeActivity::class.java, true)
+                                }else{
+                                    dismissDialog()
+                                    showToast("Aun no tiene autorizacion para ingresar.")
                                 }
-                                goTo(HomeActivity::class.java, true)
                             } else {
                                 dismissDialog()
                                 showAlert()

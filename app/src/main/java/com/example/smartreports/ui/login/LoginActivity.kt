@@ -103,12 +103,14 @@ class LoginActivity : BaseActivity() {
                 override fun onResponse(call: Call<SignInResponse>, response: Response<SignInResponse>) {
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            if (it.response && it.status) {
+                            if (it.response) {
                                 if(it.status){
                                     Memory.userName = it.userName?: ""
+                                    Memory.token = it.token?: ""
+
                                     if (cbRemember.isChecked) {
                                         Memory.saveInMemory("user", user)
-                                        Memory.saveInMemory("pass", pass)
+                                        Memory.saveInMemory("user", user)
                                     } else {
                                         Memory.delete("user")
                                         Memory.delete("pass")

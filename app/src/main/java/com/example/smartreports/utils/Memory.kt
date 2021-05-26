@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 object Memory {
 
     var userName: String = ""
+    var token: String = ""
 
     private lateinit var sharedPref: SharedPreferences
 

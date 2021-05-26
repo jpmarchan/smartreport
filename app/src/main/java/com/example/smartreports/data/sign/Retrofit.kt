@@ -5,8 +5,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
+//private const val URL = "http://api-smartreport.codeksora.com/"
+private const val URL = "http://a94fa9973cf6.ngrok.io/"
 
-private const val URL = "http://api-smartreport.codeksora.com/"
+
 
 data class SignInParams(
     val email: String,
@@ -18,14 +20,34 @@ data class SignInResponse(
     val response: Boolean,
     val token: String,
     val status: Boolean,
-    val userId: String,
+    val userId: Int,
     val userName: String
+)
+
+// create users
+data class CreatePatientParams(
+    val name: String,
+    val lastname: String,
+    val email: String,
+    val password: String,
+    val rol: Int,
+    val status:  Boolean,
+    val dni: Int,
+    val sex: Boolean,
+    val age: Int
+)
+data class CreatePatientResponse(
+    val message: String = "",
+    val status: Boolean
 )
 
 interface ApiService {
 
     @POST("sign")
     fun signIn(@Body signInParams: SignInParams): Call<SignInResponse>
+
+    @POST("users")
+    fun createPatient(@Body CreatePatientParams: CreatePatientParams): Call<CreatePatientResponse>
 }
 
 object Api {

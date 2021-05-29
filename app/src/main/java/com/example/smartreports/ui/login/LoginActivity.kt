@@ -110,7 +110,7 @@ class LoginActivity : BaseActivity() {
 
                                     if (cbRemember.isChecked) {
                                         Memory.saveInMemory("user", user)
-                                        Memory.saveInMemory("user", user)
+                                        Memory.saveInMemory("pass", pass)
                                     } else {
                                         Memory.delete("user")
                                         Memory.delete("pass")

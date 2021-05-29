@@ -4,15 +4,19 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartreports.R
-import com.example.smartreports.adapters.HistorPatientAdapter
+import com.example.smartreports.adapters.HistoryPatientAdapter
+import com.example.smartreports.data.sign.Api
+import com.example.smartreports.data.sign.OriginalReports
 import com.example.smartreports.ui.BaseActivity
+import com.example.smartreports.utils.Logger
 import com.example.smartreports.utils.Memory
-
-data class Reports(val name: String = "", val image: String = "", val description: String = "")
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeActivity : BaseActivity() {
+
     lateinit var setName: TextView
-    private var dataReports= ArrayList<Reports>()
     lateinit var recycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,40 +26,26 @@ class HomeActivity : BaseActivity() {
         setName = findViewById(R.id.setName)
         setName.text = Memory.userName
 
-
-        loadFakeData()
-        setupRecycler()
+        loadDataFromService()
     }
 
-    private fun loadFakeData(){
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-        dataReports.add(
-            Reports()
-        )
-    }
+    private fun loadDataFromService(){
 
-    private fun setupRecycler(){
-        val adapter = HistorPatientAdapter(dataReports, this)
-        recycler.adapter = adapter
+        Api.retrofitService.getReportByPatient(Memory.token, "2").enqueue(object : Callback<List<OriginalReports>> {
+            override fun onResponse(
+                call: Call<List<OriginalReports>>,
+                response: Response<List<OriginalReports>>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    val adapter = HistoryPatientAdapter(response.body()!!, this@HomeActivity)
+                    recycler.adapter = adapter
+                }
+            }
+
+            override fun onFailure(call: Call<List<OriginalReports>>, t: Throwable) {
+                Logger.d("onFailure: ${t.message}")
+            }
+
+        })
     }
 }

@@ -1,14 +1,13 @@
 package com.example.smartreports.data.sign
 
+import com.example.smartreports.utils.Memory
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
+
 //private const val URL = "http://api-smartreport.codeksora.com/"
-private const val URL = "http://a94fa9973cf6.ngrok.io/"
-
-
+private const val URL = "http://781d1df6acc1.ngrok.io"
 
 data class SignInParams(
     val email: String,
@@ -41,6 +40,15 @@ data class CreatePatientResponse(
     val status: Boolean
 )
 
+data class OriginalReports(
+    val id: Int,
+    val fecha: String,
+    val fkidMedico: Int,
+    val fkidPatient: Int,
+    val detail: String,
+    val status: Boolean
+)
+
 interface ApiService {
 
     @POST("sign")
@@ -48,6 +56,9 @@ interface ApiService {
 
     @POST("users")
     fun createPatient(@Body CreatePatientParams: CreatePatientParams): Call<CreatePatientResponse>
+
+    @GET("reportByPatient/{id}")
+    fun getReportByPatient(@Header("x-access-token") token: String, @Path("id") patientId: String): Call<List<OriginalReports>>
 }
 
 object Api {

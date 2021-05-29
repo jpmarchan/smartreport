@@ -67,7 +67,7 @@ class UserCreateActivity : BaseActivity() {
                         response.body()?.let {
                             if(it.status){
                                 showToast("Solicitud de registro exitosa.")
-
+                                onBackPressed()
                             }else{
                                 showToast("Correo ya exitente.")
                             }

@@ -11,6 +11,6 @@
     <color name="bg">#FFFFFF</color>
     <color name="button">#C5C6C8</color>
     <color name="second_color">#84B6F4</color>
-    <color name="botton_active">#FF6961</color>
+    <color name="botton_active">#E30119</color>
 
 </resources>

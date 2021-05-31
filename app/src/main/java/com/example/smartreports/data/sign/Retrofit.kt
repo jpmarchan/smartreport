@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 //private const val URL = "http://api-smartreport.codeksora.com/"
-private const val URL = "http://781d1df6acc1.ngrok.io"
+private const val URL = "http://23ad2963923d.ngrok.io"
 
 data class SignInParams(
     val email: String,
@@ -45,7 +45,7 @@ data class OriginalReports(
     val fecha: String,
     val fkidMedico: Int,
     val fkidPatient: Int,
-    val detail: String,
+    val namedoc: String,
     val status: Boolean
 )
 

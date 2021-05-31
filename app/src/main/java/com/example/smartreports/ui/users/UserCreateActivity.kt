@@ -77,7 +77,6 @@ class UserCreateActivity : BaseActivity() {
                         dismissDialog()
                     }
                 }
-
                 override fun onFailure(call: Call<CreatePatientResponse>, t: Throwable) {
                     showToast("Error.")
 

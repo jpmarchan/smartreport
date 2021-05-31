@@ -107,6 +107,7 @@ class LoginActivity : BaseActivity() {
                                 if(it.status){
                                     Memory.userName = it.userName?: ""
                                     Memory.token = it.token?: ""
+                                    Memory.id  = it.userId.toString()?:""
 
                                     if (cbRemember.isChecked) {
                                         Memory.saveInMemory("user", user)

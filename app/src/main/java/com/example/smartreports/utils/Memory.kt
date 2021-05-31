@@ -7,6 +7,8 @@ object Memory {
 
     var userName: String = ""
     var token: String = ""
+    var id: String = ""
+
 
     private lateinit var sharedPref: SharedPreferences
 

@@ -18,6 +18,7 @@ class HomeActivity : BaseActivity() {
 
     lateinit var setName: TextView
     lateinit var recycler: RecyclerView
+    lateinit var idUser: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +26,14 @@ class HomeActivity : BaseActivity() {
         recycler = findViewById(R.id.recyclerView)
         setName = findViewById(R.id.setName)
         setName.text = Memory.userName
+        idUser = Memory.id
 
         loadDataFromService()
     }
 
     private fun loadDataFromService(){
 
-        Api.retrofitService.getReportByPatient(Memory.token, "2").enqueue(object : Callback<List<OriginalReports>> {
+        Api.retrofitService.getReportByPatient(Memory.token, idUser).enqueue(object : Callback<List<OriginalReports>> {
             override fun onResponse(
                 call: Call<List<OriginalReports>>,
                 response: Response<List<OriginalReports>>
@@ -39,6 +41,7 @@ class HomeActivity : BaseActivity() {
                 if (response.isSuccessful && response.body() != null) {
                     val adapter = HistoryPatientAdapter(response.body()!!, this@HomeActivity)
                     recycler.adapter = adapter
+
                 }
             }
 
@@ -48,4 +51,7 @@ class HomeActivity : BaseActivity() {
 
         })
     }
+
+
+
 }

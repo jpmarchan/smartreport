@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
-import com.mediclab.smartreports.adapters.HistoryPatientAdapter
+import com.mediclab.smartreports.adapters.ReportHistory
+import com.mediclab.smartreports.adapters.ReportHistoryAdapter
+import com.mediclab.smartreports.adapters.ReportsByPatientAdapter
 import com.mediclab.smartreports.data.sign.Api
 import com.mediclab.smartreports.data.sign.OriginalReports
 import com.mediclab.smartreports.ui.BaseActivity
@@ -17,21 +19,24 @@ import retrofit2.Response
 class HomeActivity : BaseActivity() {
 
     lateinit var setName: TextView
-    lateinit var recycler: RecyclerView
+    lateinit var rvReports: RecyclerView
+    lateinit var rvHistory: RecyclerView
     lateinit var idUser: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        recycler = findViewById(R.id.recyclerView)
+        rvReports = findViewById(R.id.rvReports)
+        rvHistory = findViewById(R.id.rvHistory)
         setName = findViewById(R.id.setName)
         setName.text = Memory.userName
         idUser = Memory.id
 
-        loadDataFromService()
+        loadReportsHistory()
+        loadReportsFromService()
     }
 
-    private fun loadDataFromService() {
+    private fun loadReportsFromService() {
         Api.retrofitService.getReportByPatient(Memory.token, idUser)
             .enqueue(object : Callback<List<OriginalReports>> {
                 override fun onResponse(
@@ -39,8 +44,8 @@ class HomeActivity : BaseActivity() {
                     response: Response<List<OriginalReports>>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
-                        val adapter = HistoryPatientAdapter(response.body()!!, this@HomeActivity)
-                        recycler.adapter = adapter
+                        val adapter = ReportsByPatientAdapter(response.body()!!)
+                        rvReports.adapter = adapter
                     }
                 }
 
@@ -48,5 +53,17 @@ class HomeActivity : BaseActivity() {
                     Logger.d("onFailure: ${t.message}")
                 }
             })
+    }
+
+    private fun loadReportsHistory() {
+        val fakeList = listOf(
+            ReportHistory("00000114", "01/06/2020 10:05:16 AM"),
+            ReportHistory("00000113", "30/05/2020 15:22:08 AM"),
+            ReportHistory("00000112", "29/05/2020 20:09:23 AM"),
+            ReportHistory("00000111", "27/05/2020 09:35:46 AM"),
+            ReportHistory("00000110", "25/05/2020 13:47:53 AM")
+        )
+        val historyAdapter = ReportHistoryAdapter(fakeList)
+        rvHistory.adapter = historyAdapter
     }
 }

@@ -5,12 +5,10 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
 
 open class BaseActivity : AppCompatActivity() {
 
     private val mIntent = Intent()
-    val db = FirebaseFirestore.getInstance()
     private lateinit var progress: ProgressDialog
 
     fun showToast(message: String) {

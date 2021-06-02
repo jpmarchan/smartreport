@@ -126,8 +126,6 @@ class LoginActivity : BaseActivity() {
                                 showAlert()
                             }
                         }
-                        dismissDialog()
-                        showAlert()
                     } else {
                         dismissDialog()
                         showAlert()

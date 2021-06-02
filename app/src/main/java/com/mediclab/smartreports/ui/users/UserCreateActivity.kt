@@ -1,17 +1,12 @@
-package com.example.smartreports.ui.users
+package com.mediclab.smartreports.ui.users
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import com.example.smartreports.R
-import com.example.smartreports.data.sign.*
-import com.example.smartreports.ui.BaseActivity
-import com.example.smartreports.ui.patient.HomeActivity
-import com.example.smartreports.utils.Memory
+import com.mediclab.smartreports.R
+import com.mediclab.smartreports.data.sign.*
+import com.mediclab.smartreports.ui.BaseActivity
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

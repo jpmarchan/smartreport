@@ -1,4 +1,4 @@
-package com.example.smartreports
+package com.mediclab.smartreports
 
 import org.junit.Test
 

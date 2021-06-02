@@ -1,12 +1,9 @@
-package com.example.smartreports.ui.users
+package com.mediclab.smartreports.ui.users
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.smartreports.R
-import com.example.smartreports.ui.BaseActivity
-import com.google.firebase.firestore.FirebaseFirestore
+import com.mediclab.smartreports.R
+import com.mediclab.smartreports.ui.BaseActivity
 
 class UsersActivity : BaseActivity() {
 

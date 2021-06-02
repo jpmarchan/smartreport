@@ -1,15 +1,15 @@
-package com.example.smartreports.ui.patient
+package com.mediclab.smartreports.ui.patient
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smartreports.R
-import com.example.smartreports.adapters.HistoryPatientAdapter
-import com.example.smartreports.data.sign.Api
-import com.example.smartreports.data.sign.OriginalReports
-import com.example.smartreports.ui.BaseActivity
-import com.example.smartreports.utils.Logger
-import com.example.smartreports.utils.Memory
+import com.mediclab.smartreports.R
+import com.mediclab.smartreports.adapters.HistoryPatientAdapter
+import com.mediclab.smartreports.data.sign.Api
+import com.mediclab.smartreports.data.sign.OriginalReports
+import com.mediclab.smartreports.ui.BaseActivity
+import com.mediclab.smartreports.utils.Logger
+import com.mediclab.smartreports.utils.Memory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

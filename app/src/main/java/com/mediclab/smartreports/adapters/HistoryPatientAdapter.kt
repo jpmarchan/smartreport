@@ -1,18 +1,13 @@
-package com.example.smartreports.adapters
+package com.mediclab.smartreports.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import java.time.*
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smartreports.R
-import com.example.smartreports.data.sign.OriginalReports
-import java.text.SimpleDateFormat
-import java.util.*
-import java.util.logging.Logger
+import com.mediclab.smartreports.R
+import com.mediclab.smartreports.data.sign.OriginalReports
 
 class HistoryPatientAdapter(
     private val originalReportList: List<OriginalReports>,

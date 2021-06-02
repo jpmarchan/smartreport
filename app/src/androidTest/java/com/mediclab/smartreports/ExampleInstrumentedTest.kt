@@ -1,4 +1,4 @@
-package com.example.smartreports
+package com.mediclab.smartreports
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

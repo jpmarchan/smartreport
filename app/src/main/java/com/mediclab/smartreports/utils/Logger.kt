@@ -1,4 +1,4 @@
-package com.example.smartreports.utils
+package com.mediclab.smartreports.utils
 
 import android.util.Log
 

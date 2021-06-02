@@ -1,4 +1,4 @@
-package com.example.smartreports.ui
+package com.mediclab.smartreports.ui
 
 import android.app.ProgressDialog
 import android.content.Intent

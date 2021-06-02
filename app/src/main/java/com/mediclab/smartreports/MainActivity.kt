@@ -1,4 +1,4 @@
-package com.example.smartreports
+package com.mediclab.smartreports
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

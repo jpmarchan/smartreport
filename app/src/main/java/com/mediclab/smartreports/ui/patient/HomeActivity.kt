@@ -31,27 +31,22 @@ class HomeActivity : BaseActivity() {
         loadDataFromService()
     }
 
-    private fun loadDataFromService(){
-
-        Api.retrofitService.getReportByPatient(Memory.token, idUser).enqueue(object : Callback<List<OriginalReports>> {
-            override fun onResponse(
-                call: Call<List<OriginalReports>>,
-                response: Response<List<OriginalReports>>
-            ) {
-                if (response.isSuccessful && response.body() != null) {
-                    val adapter = HistoryPatientAdapter(response.body()!!, this@HomeActivity)
-                    recycler.adapter = adapter
-
+    private fun loadDataFromService() {
+        Api.retrofitService.getReportByPatient(Memory.token, idUser)
+            .enqueue(object : Callback<List<OriginalReports>> {
+                override fun onResponse(
+                    call: Call<List<OriginalReports>>,
+                    response: Response<List<OriginalReports>>
+                ) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val adapter = HistoryPatientAdapter(response.body()!!, this@HomeActivity)
+                        recycler.adapter = adapter
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<List<OriginalReports>>, t: Throwable) {
-                Logger.d("onFailure: ${t.message}")
-            }
-
-        })
+                override fun onFailure(call: Call<List<OriginalReports>>, t: Throwable) {
+                    Logger.d("onFailure: ${t.message}")
+                }
+            })
     }
-
-
-
 }

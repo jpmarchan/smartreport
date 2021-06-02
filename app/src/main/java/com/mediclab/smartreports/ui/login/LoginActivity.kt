@@ -59,13 +59,13 @@ class LoginActivity : BaseActivity() {
         }
 
         etUser.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                if (s != null){
-                    if (s.isNotEmpty()){
+                if (s != null) {
+                    if (s.isNotEmpty()) {
                         signInButton.setBackgroundResource(R.drawable.bg_button_selected)
                     } else {
                         signInButton.setBackgroundResource(R.drawable.bg_button_normal)
@@ -100,14 +100,17 @@ class LoginActivity : BaseActivity() {
             Logger.d("signInParams: $signInParams")
             Api.retrofitService.signIn(SignInParams(user, pass)).enqueue(object :
                 Callback<SignInResponse> {
-                override fun onResponse(call: Call<SignInResponse>, response: Response<SignInResponse>) {
+                override fun onResponse(
+                    call: Call<SignInResponse>,
+                    response: Response<SignInResponse>
+                ) {
                     if (response.isSuccessful) {
                         response.body()?.let {
                             if (it.response) {
-                                if(it.status){
-                                    Memory.userName = it.userName?: ""
-                                    Memory.token = it.token?: ""
-                                    Memory.id  = it.userId.toString()?:""
+                                if (it.status) {
+                                    Memory.userName = it.userName ?: ""
+                                    Memory.token = it.token ?: ""
+                                    Memory.id = it.userId.toString() ?: ""
 
                                     if (cbRemember.isChecked) {
                                         Memory.saveInMemory("user", user)
@@ -117,7 +120,7 @@ class LoginActivity : BaseActivity() {
                                         Memory.delete("pass")
                                     }
                                     goTo(HomeActivity::class.java, true)
-                                }else{
+                                } else {
                                     dismissDialog()
                                     showToast("Aun no tiene autorizacion para ingresar.")
                                 }

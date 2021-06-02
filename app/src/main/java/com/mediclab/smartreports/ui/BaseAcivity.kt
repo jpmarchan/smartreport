@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     private val mIntent = Intent()
     val db = FirebaseFirestore.getInstance()
@@ -22,8 +22,10 @@ open class BaseActivity: AppCompatActivity() {
         dismissDialog()
     }
 
-    fun goTo(targetClass: Class<*>, isCleared: Boolean = false, extraLabel: String = "",
-             extraData: String = "") {
+    fun goTo(
+        targetClass: Class<*>, isCleared: Boolean = false, extraLabel: String = "",
+        extraData: String = ""
+    ) {
         mIntent.setClass(this, targetClass)
         if (isCleared) {
             // use intent.apply {}
@@ -38,8 +40,10 @@ open class BaseActivity: AppCompatActivity() {
     }
 
     fun showDialogProgress(message: String = "") {
-        progress = ProgressDialog.show(this, "",
-            message, true)
+        progress = ProgressDialog.show(
+            this, "",
+            message, true
+        )
     }
 
     fun dismissDialog() {

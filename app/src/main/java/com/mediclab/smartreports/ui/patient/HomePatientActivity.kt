@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
+import com.mediclab.smartreports.adapters.ReportHistoryAdapter
 import com.mediclab.smartreports.adapters.ReportsByPatientAdapter
 import com.mediclab.smartreports.data.sign.Api
 import com.mediclab.smartreports.data.sign.OriginalReports
@@ -54,11 +55,12 @@ class HomePatientActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
                             val listTrue = originalReportList.filter { report -> report.status }
                             val adapter = ReportsByPatientAdapter(listTrue, listener)
                             rvReports.adapter = adapter
+
+                            val listFalse= originalReportList.filter { report -> !report.status }
+                            val adapterHistory = ReportHistoryAdapter(listFalse)
+                            rvHistory.adapter = adapterHistory
                         }
 
-
-                        /* val adapterHistory = ReportHistoryAdapter(response.body()!!)*/
-                        /*rvHistory.adapter = adapterHistory*/
                     }
                 }
 
@@ -70,5 +72,6 @@ class HomePatientActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
 
     override fun onItemClick(id: Int) {
         Toast.makeText(this, "ID : $id", Toast.LENGTH_SHORT).show()
+        goTo(DetailReportActivity::class.java)
     }
 }

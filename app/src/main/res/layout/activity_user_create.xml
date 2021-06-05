@@ -7,6 +7,7 @@
     tools:context=".ui.users.UserCreateActivity">
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -21,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView3"
         android:layout_width="305dp"
         android:layout_height="42dp"
@@ -30,6 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/nameUserRegister"
         android:layout_width="131dp"
         android:layout_height="45dp"
@@ -45,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/lastnameUserRegister"
         android:layout_width="224dp"
         android:layout_height="45dp"
@@ -61,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/emailUserRegister"
         android:layout_width="0dp"
         android:layout_height="47dp"
@@ -76,6 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dniUserRegister" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/phoneUserRegister"
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -91,6 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/emailUserRegister" />
 
     <Button
+        style="@style/TextStyle"
         android:id="@+id/btnUserRegister"
         android:layout_width="347dp"
         android:layout_height="48dp"
@@ -105,6 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passCreate" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/existAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,6 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnUserRegister" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/dniUserRegister"
         android:layout_width="0dp"
         android:layout_height="46dp"
@@ -133,6 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nameUserRegister" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/passCreate"
         android:layout_width="0dp"
         android:layout_height="49dp"

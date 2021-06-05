@@ -52,6 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
+            style="@style/TextStyle"
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,6 +64,7 @@
             app:layout_constraintTop_toTopOf="@+id/view2" />
 
         <TextView
+            style="@style/TextStyle"
             android:id="@+id/setNameDoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,6 +82,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -94,6 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <EditText
+        style="@style/TextStyle"
         android:id="@+id/dnisearch"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -109,6 +113,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView7"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -122,6 +127,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dnisearch" />
 
     <EditText
+        style="@style/TextStyle"
         android:id="@+id/txtSearchNamePatient"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -137,6 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
+        style="@style/TextStyle"
         android:id="@+id/txtSearchLasnamePatient"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -152,6 +159,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtSearchNamePatient" />
 
     <Button
+        style="@style/TextStyle"
         android:id="@+id/btnSearchPatient"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

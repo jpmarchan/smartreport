@@ -19,6 +19,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_user"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
@@ -26,6 +27,7 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/bg_edittext"
         android:ems="10"
+        android:fontFamily="@font/lato"
         android:hint="Correo"
         android:inputType="textEmailAddress"
         android:paddingHorizontal="15dp"
@@ -35,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextStyle"
         android:id="@+id/txt_pass"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -49,6 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
     <CheckBox
+        style="@style/TextStyle"
         android:id="@+id/cbRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
 
     <Button
+        style="@style/TextStyle"
         android:id="@+id/signin_button"
         android:layout_width="0dp"
         android:layout_height="49dp"
@@ -73,6 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cbRemember" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

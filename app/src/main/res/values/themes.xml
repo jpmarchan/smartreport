@@ -17,6 +17,12 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:windowBackground">@color/white</item>
+
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="fontFamily">@font/lato</item>
     </style>
 </resources>

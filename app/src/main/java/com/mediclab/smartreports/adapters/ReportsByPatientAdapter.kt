@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
-import com.mediclab.smartreports.data.sign.OriginalReports
+import com.mediclab.smartreports.data.sign.OriginalReport
 
 class ReportsByPatientAdapter(
-    private val originalReportList: List<OriginalReports>,
+    private val originalReportList: List<OriginalReport>,
     private val listener: OnItemClickListener
 ) : RecyclerView.Adapter<ReportsByPatientAdapter.ReportsHolder>() {
 
@@ -34,7 +34,7 @@ class ReportsByPatientAdapter(
         val medic = itemView.findViewById<TextView>(R.id.medicreport)
         val btndetail = itemView.findViewById<TextView>(R.id.btndetail)
 
-        fun bind(item: OriginalReports) {
+        fun bind(item: OriginalReport) {
             date.text = item.fecha
             medic.text = "${item.namedoc} ${item.lastnamedoc}"
             btndetail.setOnClickListener {

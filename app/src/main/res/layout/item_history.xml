@@ -8,6 +8,7 @@
     android:layout_height="wrap_content">
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/tvReportId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
         tools:text="00000110" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/tvReportDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -44,6 +44,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/TextStyle"
         android:id="@+id/view2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -53,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
+            style="@style/TextStyle"
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -64,6 +66,7 @@
             app:layout_constraintTop_toTopOf="@+id/view2" />
 
         <TextView
+            style="@style/TextStyle"
             android:id="@+id/setName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,6 +98,7 @@
         tools:listitem="@layout/item_reports" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

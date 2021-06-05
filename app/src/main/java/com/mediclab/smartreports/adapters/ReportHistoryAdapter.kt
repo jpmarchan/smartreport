@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
-import com.mediclab.smartreports.data.sign.OriginalReports
+import com.mediclab.smartreports.data.sign.OriginalReport
 
 
 class ReportHistoryAdapter(
-    private val reportHistory: List<OriginalReports>
+    private val reportHistory: List<OriginalReport>
 ) : RecyclerView.Adapter<ReportHistoryAdapter.HistoryHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryHolder {

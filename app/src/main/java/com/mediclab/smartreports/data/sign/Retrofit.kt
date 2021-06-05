@@ -1,5 +1,6 @@
 package com.mediclab.smartreports.data.sign
 
+import com.mediclab.smartreports.utils.Memory
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -40,7 +41,7 @@ data class CreatePatientResponse(
     val status: Boolean
 )
 
-data class OriginalReports(
+data class OriginalReport(
     val id: Int,
     val fecha: String,
     val fkidMedico: Int,
@@ -49,8 +50,22 @@ data class OriginalReports(
     val lastnamedoc: String,
     val status: Boolean
 )
+data class ReportsDetail(
+    val id: Int,
+    val fecha: String,
+    val fkidMedico: Int,
+    val fkidPatient: Int,
+    val status: Boolean,
+    val namedoc: String,
+    val lastnamedoc: String,
+    val detailgenerate: String,
+    val idreportgenerate: Int,
+    val statusgenerate: Boolean
+    )
+//detalle reportes con reporte generado
 
 interface ApiService {
+
 
     @POST("sign")
     fun signIn(@Body signInParams: SignInParams): Call<SignInResponse>
@@ -59,7 +74,10 @@ interface ApiService {
     fun createPatient(@Body CreatePatientParams: CreatePatientParams): Call<CreatePatientResponse>
 
     @GET("reportByPatient/{id}")
-    fun getReportByPatient(@Header("x-access-token") token: String, @Path("id") patientId: String): Call<List<OriginalReports>>
+    fun getReportByPatient(@Header("x-access-token") token: String = Memory.token, @Path("id") patientId: String): Call<List<OriginalReport>>
+    //detalle reporte por id
+    @GET("getReportById/{id}")
+    fun getReportById(@Header("x-access-token") token: String = Memory.token, @Path("id") reportId: String): Call<List<ReportsDetail>>
 }
 
 object Api {

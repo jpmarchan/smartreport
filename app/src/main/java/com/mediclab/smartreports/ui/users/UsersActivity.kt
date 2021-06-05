@@ -15,18 +15,8 @@ class UsersActivity : BaseActivity() {
         val bundle = intent.extras
         val email:String = bundle?.getString("email").toString()
         btn_get_users = findViewById(R.id.get_button)
-        getUsers(email)
     }
 
-    fun getUsers(email: String){
-        btn_get_users.setOnClickListener {
 
-            db.collection("Users").document(email)
-                .get().addOnSuccessListener {
-                    documentSnapshot ->
-                    showToast(documentSnapshot.get("name").toString())
-                }
-        }
-    }
 
 }

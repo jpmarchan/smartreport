@@ -1,8 +1,6 @@
 package com.mediclab.smartreports.ui.login
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.mediclab.smartreports.R
@@ -10,11 +8,12 @@ import com.mediclab.smartreports.data.sign.Api
 import com.mediclab.smartreports.data.sign.SignInParams
 import com.mediclab.smartreports.data.sign.SignInResponse
 import com.mediclab.smartreports.ui.BaseActivity
-import com.mediclab.smartreports.ui.patient.HomeActivity
+import com.mediclab.smartreports.ui.patient.HomePatientActivity
 import com.mediclab.smartreports.ui.users.UserCreateActivity
 import com.mediclab.smartreports.utils.Logger
 import com.mediclab.smartreports.utils.Memory
 import com.google.android.material.textfield.TextInputEditText
+import com.mediclab.smartreports.ui.doct.HomeDocActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,22 +56,9 @@ class LoginActivity : BaseActivity() {
             cbRemember.isChecked = true
             signInButton.setBackgroundResource(R.drawable.bg_button_selected)
         }
+        changeListener(etUser, signInButton)
+        changeListener(etPass, signInButton)
 
-        etUser.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                if (s != null) {
-                    if (s.isNotEmpty()) {
-                        signInButton.setBackgroundResource(R.drawable.bg_button_selected)
-                    } else {
-                        signInButton.setBackgroundResource(R.drawable.bg_button_normal)
-                    }
-                }
-            }
-        })
     }
 
     private fun onClickEvents() {
@@ -107,23 +93,7 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         response.body()?.let {
                             if (it.response) {
-                                if (it.status) {
-                                    Memory.userName = it.userName ?: ""
-                                    Memory.token = it.token ?: ""
-                                    Memory.id = it.userId.toString() ?: ""
-
-                                    if (cbRemember.isChecked) {
-                                        Memory.saveInMemory("user", user)
-                                        Memory.saveInMemory("pass", pass)
-                                    } else {
-                                        Memory.delete("user")
-                                        Memory.delete("pass")
-                                    }
-                                    goTo(HomeActivity::class.java, true)
-                                } else {
-                                    dismissDialog()
-                                    showToast("Aun no tiene autorizacion para ingresar.")
-                                }
+                                singByRol(it.userId.toString(), it.userName, it.token, it.rol, it.status )
                             } else {
                                 dismissDialog()
                                 showAlert()
@@ -134,12 +104,35 @@ class LoginActivity : BaseActivity() {
                         showAlert()
                     }
                 }
-
                 override fun onFailure(call: Call<SignInResponse>, t: Throwable) {
                     dismissDialog()
                     showAlert()
                 }
             })
+        }
+    }
+
+
+    private fun singByRol(id: String = "", userName : String = "", token: String = "", role: Int = 0, status: Boolean = false ){
+        if(!status){
+            dismissDialog()
+            showToast("Aun no tiene autorizacion para ingresar.")
+        }else{
+            Memory.userName = userName
+            Memory.token = token
+            Memory.id = id
+            if (cbRemember.isChecked) {
+                Memory.saveInMemory("user", user)
+                Memory.saveInMemory("pass", pass)
+            } else {
+                Memory.delete("user")
+                Memory.delete("pass")
+            }
+            if(role == 1){
+                goTo(HomePatientActivity::class.java, true)
+            }else{
+                goTo(HomeDocActivity::class.java, true)
+            }
         }
     }
 

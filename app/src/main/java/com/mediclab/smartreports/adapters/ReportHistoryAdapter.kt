@@ -6,14 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
+import com.mediclab.smartreports.data.sign.OriginalReports
 
-data class ReportHistory(
-    val reportId: String,
-    val reportDate: String
-)
 
 class ReportHistoryAdapter(
-    private val reportHistory: List<ReportHistory>
+    private val reportHistory: List<OriginalReports>
 ) : RecyclerView.Adapter<ReportHistoryAdapter.HistoryHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryHolder {
@@ -27,8 +24,11 @@ class ReportHistoryAdapter(
     }
 
     override fun onBindViewHolder(holder: HistoryHolder, position: Int) {
-        holder.tvId.text = reportHistory[position].reportId
-        holder.tvDate.text = reportHistory[position].reportDate
+        if (!reportHistory[position].status) {
+            holder.tvId.text = "000"+reportHistory[position].id
+            holder.tvDate.text = reportHistory[position].fecha
+        }
+
     }
 
     class HistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

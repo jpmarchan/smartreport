@@ -14,7 +14,7 @@ data class SignInParams(
 )
 
 data class SignInResponse(
-    val rol: String,
+    val rol: Int,
     val response: Boolean,
     val token: String,
     val status: Boolean,
@@ -28,6 +28,7 @@ data class CreatePatientParams(
     val lastname: String,
     val email: String,
     val password: String,
+    val phone: Int,
     val rol: Int,
     val status:  Boolean,
     val dni: Int,
@@ -45,6 +46,7 @@ data class OriginalReports(
     val fkidMedico: Int,
     val fkidPatient: Int,
     val namedoc: String,
+    val lastnamedoc: String,
     val status: Boolean
 )
 

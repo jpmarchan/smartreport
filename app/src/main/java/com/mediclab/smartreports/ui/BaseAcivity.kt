@@ -2,15 +2,18 @@ package com.mediclab.smartreports.ui
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
+import com.mediclab.smartreports.R
 
 open class BaseActivity : AppCompatActivity() {
 
     private val mIntent = Intent()
-    val db = FirebaseFirestore.getInstance()
     private lateinit var progress: ProgressDialog
 
     fun showToast(message: String) {
@@ -50,6 +53,23 @@ open class BaseActivity : AppCompatActivity() {
         if (::progress.isInitialized) {
             progress.dismiss()
         }
+    }
+    fun changeListener(input: EditText, btn: Button){
+        input.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null) {
+                    if (s.isNotEmpty()) {
+                        btn.setBackgroundResource(R.drawable.bg_button_selected)
+                    } else {
+                        btn.setBackgroundResource(R.drawable.bg_button_normal)
+                    }
+                }
+            }
+        })
     }
 
     private fun showAlert() {

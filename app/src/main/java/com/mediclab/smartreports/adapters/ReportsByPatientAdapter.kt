@@ -9,7 +9,8 @@ import com.mediclab.smartreports.R
 import com.mediclab.smartreports.data.sign.OriginalReports
 
 class ReportsByPatientAdapter(
-    private val originalReportList: List<OriginalReports>
+    private val originalReportList: List<OriginalReports>,
+    private val listener: OnItemClickListener
 ) : RecyclerView.Adapter<ReportsByPatientAdapter.ReportsHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportsHolder {
@@ -18,19 +19,32 @@ class ReportsByPatientAdapter(
         return ReportsHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return originalReportList.size
-    }
+    override fun getItemCount() = originalReportList.size
+
 
     override fun onBindViewHolder(holder: ReportsHolder, position: Int) {
-        if (originalReportList[position].status) {
-            holder.date.text = originalReportList[position].fecha
-            holder.medic.text = originalReportList[position].namedoc
+
+        val item = originalReportList[position]
+        holder.bind(item)
+
+    }
+
+    inner class ReportsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val date = itemView.findViewById<TextView>(R.id.datefech)
+        val medic = itemView.findViewById<TextView>(R.id.medicreport)
+        val btndetail = itemView.findViewById<TextView>(R.id.btndetail)
+
+        fun bind(item: OriginalReports) {
+            date.text = item.fecha
+            medic.text = "${item.namedoc} ${item.lastnamedoc}"
+            btndetail.setOnClickListener {
+                listener.onItemClick(item.id)
+            }
         }
     }
 
-    class ReportsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val date = itemView.findViewById<TextView>(R.id.datefech)
-        val medic = itemView.findViewById<TextView>(R.id.medicreport)
+    interface OnItemClickListener {
+        fun onItemClick(id: Int)
     }
+
 }

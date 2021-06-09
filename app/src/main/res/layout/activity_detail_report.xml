@@ -188,11 +188,13 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="414dp"
-        android:layout_height="440dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16">
 
@@ -204,11 +206,11 @@
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="222dp"
+                android:layout_marginEnd="219dp"
                 android:background="@drawable/report_original"
                 android:paddingHorizontal="15dp"
                 android:text="Reporte mejorado:"
@@ -219,12 +221,61 @@
 
             <TextView
                 android:id="@+id/txtreportimproved"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView14"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+            <Button
+                android:id="@+id/btnSpeech"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="aaaa:"
+                android:drawableLeft="@drawable/ic_vector"
+                android:text="Escuchar reporte"
+                android:textAllCaps="false"
+                android:textColor="@color/second_color"
+                app:layout_constraintStart_toStartOf="@+id/txtreportimproved"
+                app:layout_constraintTop_toBottomOf="@+id/txtreportimproved" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="134dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/report_generate"
+                android:paddingHorizontal="15dp"
+                android:text="Reporte original:"
+                android:textColor="@color/bg"
                 app:layout_constraintStart_toStartOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/btnSpeech" />
+
+            <TextView
+                android:id="@+id/txtreportoriginal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <Button
+                android:id="@+id/btnreportorigin"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_vector"
+                android:text="Escuchar reporte"
+                android:textAllCaps="false"
+                android:textColor="@color/second_color"
+                app:layout_constraintStart_toStartOf="@+id/txtreportoriginal"
+                app:layout_constraintTop_toBottomOf="@+id/txtreportoriginal" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

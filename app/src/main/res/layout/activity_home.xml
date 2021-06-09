@@ -83,6 +83,19 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No existen reportes."
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/rvReports"
+        app:layout_constraintEnd_toEndOf="@id/rvReports"
+        app:layout_constraintTop_toTopOf="@id/rvReports"
+        app:layout_constraintBottom_toBottomOf="@id/rvReports"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReports"
         android:layout_width="0dp"

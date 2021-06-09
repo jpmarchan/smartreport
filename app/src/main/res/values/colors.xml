@@ -15,5 +15,6 @@
     <color name="button_active">#E30119</color>
     <color name="primary">#e11f2c</color>
     <color name="report_original">#7879F1</color>
+    <color name="report_generate">#F178B6</color>
 
 </resources>

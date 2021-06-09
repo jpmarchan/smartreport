@@ -55,6 +55,7 @@ data class ReportsDetail(
     val fecha: String,
     val fkidMedico: Int,
     val fkidPatient: Int,
+    val detail: String,
     val status: Boolean,
     val namedoc: String,
     val lastnamedoc: String,

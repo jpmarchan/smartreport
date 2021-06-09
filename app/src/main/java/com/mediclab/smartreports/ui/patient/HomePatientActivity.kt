@@ -1,6 +1,7 @@
 package com.mediclab.smartreports.ui.patient
 
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
@@ -22,6 +23,7 @@ class HomePatientActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
     lateinit var rvReports: RecyclerView
     lateinit var rvHistory: RecyclerView
     lateinit var idUser: String
+    lateinit var tvEmpty: TextView
     lateinit var originalReportList: List<OriginalReport>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,7 @@ class HomePatientActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
         rvReports = findViewById(R.id.rvReports)
         rvHistory = findViewById(R.id.rvHistory)
         setName = findViewById(R.id.setName)
+        tvEmpty = findViewById(R.id.tvEmpty)
     }
 
     private fun loadReportsFromService(listener: ReportsByPatientAdapter.OnItemClickListener) {
@@ -59,6 +62,10 @@ class HomePatientActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
                             val listFalse= originalReportList.filter { report -> !report.status }
                             val adapterHistory = ReportHistoryAdapter(listFalse)
                             rvHistory.adapter = adapterHistory
+                        }else{
+                            tvEmpty.visibility = View.VISIBLE
+                            rvReports.visibility = View.INVISIBLE
+
                         }
 
                     }

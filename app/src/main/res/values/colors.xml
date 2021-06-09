@@ -14,5 +14,6 @@
     <color name="tree_color">#77DD77</color>
     <color name="button_active">#E30119</color>
     <color name="primary">#e11f2c</color>
+    <color name="report_original">#7879F1</color>
 
 </resources>

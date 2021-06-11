@@ -174,12 +174,14 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/btnhomed"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_nav_home"/>
 
         <ImageView
+            android:id="@+id/listReportD"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

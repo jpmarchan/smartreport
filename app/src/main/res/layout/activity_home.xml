@@ -44,8 +44,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/TextStyle"
         android:id="@+id/view2"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/header"
@@ -54,8 +54,8 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
-            style="@style/TextStyle"
             android:id="@+id/textView"
+            style="@style/TextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -66,8 +66,8 @@
             app:layout_constraintTop_toTopOf="@+id/view2" />
 
         <TextView
-            style="@style/TextStyle"
             android:id="@+id/setName"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -83,43 +83,112 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tvEmpty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No existen reportes."
-        android:elevation="2dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/rvReports"
-        app:layout_constraintEnd_toEndOf="@id/rvReports"
-        app:layout_constraintTop_toTopOf="@id/rvReports"
-        app:layout_constraintBottom_toBottomOf="@id/rvReports"
-        />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvReports"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view3"
+        style="@style/TextStyle"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:listitem="@layout/item_reports" />
+        android:background="@drawable/bg_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2">
+
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:text="No existen reportes."
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/medicreporth"
+            app:layout_constraintEnd_toEndOf="@id/medicreporth"
+            app:layout_constraintStart_toStartOf="@id/textView5h"
+            app:layout_constraintTop_toTopOf="@id/medicreporth" />
+
+        <TextView
+            android:id="@+id/textView4h"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:text="Recibido:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5h"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Médico:   "
+            app:layout_constraintStart_toStartOf="@+id/textView4h"
+            app:layout_constraintTop_toBottomOf="@+id/textView4h" />
+
+        <TextView
+            android:id="@+id/datefechh"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:maxLines="1"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4h"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView4h"
+            app:layout_constraintTop_toTopOf="@+id/textView4h"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/medicreporth"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:maxLines="1"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5h"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView5h"
+            app:layout_constraintTop_toTopOf="@+id/textView5h"
+            tools:text="@tools:sample/lorem/random" />
+
+
+        <Button
+            android:id="@+id/btndetailh"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/lato"
+            android:text="Ver detalle"
+            android:textAllCaps="false"
+            android:textColor="#FF6961"
+            app:layout_constraintEnd_toEndOf="@+id/datefechh"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmpty" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        style="@style/TextStyle"
         android:id="@+id/textView10"
+        style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Historial de reportes"
         app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/rvReports" />
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistory"
@@ -138,13 +207,13 @@
         tools:listitem="@layout/item_history" />
 
     <View
-        android:visibility="gone"
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="45dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -153,24 +222,25 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:orientation="horizontal"
         android:background="@drawable/bg_navigation"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_nav_home"/>
+            android:layout_weight="1"
+            android:src="@drawable/ic_nav_home" />
 
         <ImageView
+            android:id="@+id/btnList"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_nav_report"/>
+            android:layout_weight="1"
+            android:src="@drawable/ic_nav_report" />
 
     </LinearLayout>
 

@@ -50,6 +50,8 @@ data class OriginalReport(
     val lastnamedoc: String,
     val status: Boolean
 )
+
+
 data class ReportsDetail(
     val id: Int,
     val fecha: String,
@@ -76,9 +78,13 @@ interface ApiService {
 
     @GET("reportByPatient/{id}")
     fun getReportByPatient(@Header("x-access-token") token: String = Memory.token, @Path("id") patientId: String): Call<List<OriginalReport>>
+
+    @GET("getReportByPatientOne/{id}")
+    fun getReportByPatientOne(@Header("x-access-token") token: String = Memory.token, @Path("id") patientId: String): Call<OriginalReport>
     //detalle reporte por id
     @GET("getReportById/{id}")
-    fun getReportById(@Header("x-access-token") token: String = Memory.token, @Path("id") reportId: String): Call<List<ReportsDetail>>
+    fun getReportById(@Header("x-access-token") token: String = Memory.token, @Path("id") reportId: String): Call<ReportsDetail>
+
 }
 
 object Api {

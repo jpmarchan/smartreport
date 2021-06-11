@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import com.mediclab.smartreports.R
 import com.mediclab.smartreports.data.sign.Api
@@ -28,6 +28,8 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
     private var buttonSpeak: Button? = null
     lateinit var reportGenerate: TextView
     lateinit var txtreportoriginal: TextView
+    lateinit var imgListReports: ImageView
+    lateinit var btnHome : ImageView
 
     private var pitch= 1.0
     private var speed= 1.0
@@ -47,6 +49,7 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
         tts = TextToSpeech(this, this)
         buttonSpeak!!.setOnClickListener { speakOut() }
         btnreportorigin!!.setOnClickListener { speakOut2() }
+        onClickEvents()
 
     }
     fun bind(){
@@ -58,6 +61,8 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
         txtreportoriginal = findViewById(R.id.txtreportoriginal)
         btnreportorigin = findViewById(R.id.btnreportorigin)
         buttonSpeak = findViewById(R.id.btnSpeech)
+        imgListReports = findViewById(R.id.listReportD)
+        btnHome = findViewById(R.id.btnhomed)
 
     }
 
@@ -82,23 +87,23 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
     private fun getReportById(){
         val idreport= getIntent().getExtras()?.get("id_report");
         Api.retrofitService.getReportById(Memory.token,idreport.toString())
-            .enqueue(object : Callback<List<ReportsDetail>> {
+            .enqueue(object : Callback<ReportsDetail> {
                 override fun onResponse(
-                    call: Call<List<ReportsDetail>>,
-                    response: Response<List<ReportsDetail>>
+                    call: Call<ReportsDetail>,
+                    response: Response<ReportsDetail>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         val reportdetail = response.body()!!
-                        codeReport.text = "00${reportdetail[0].id}"
-                        date.text = reportdetail[0].fecha
-                        medic.text = "${reportdetail[0].namedoc} ${reportdetail[0].lastnamedoc}"
-                        reportGenerate.text = "${reportdetail[0].detailgenerate}"
-                        txtreportoriginal.text = "${reportdetail[0].detail}"
+                        codeReport.text = "00${reportdetail.id}"
+                        date.text = reportdetail.fecha
+                        medic.text = "${reportdetail.namedoc} ${reportdetail.lastnamedoc}"
+                        reportGenerate.text = "${reportdetail.detailgenerate}"
+                        txtreportoriginal.text = "${reportdetail.detail}"
 
                     }
                 }
 
-                override fun onFailure(call: Call<List<ReportsDetail>>, t: Throwable) {
+                override fun onFailure(call: Call<ReportsDetail>, t: Throwable) {
                     Logger.d("onFailure: ${t.message}")
                 }
             })
@@ -122,6 +127,15 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
         tts!!.setSpeechRate(speed.toFloat());
         tts!!.speak(text, TextToSpeech.LANG_AVAILABLE, null,"")
 
+    }
+
+    private fun onClickEvents() {
+        btnHome.setOnClickListener {
+            goTo(HomePatientActivity::class.java)
+        }
+        imgListReports.setOnClickListener {
+            goTo(ReportsListActivity::class.java)
+        }
     }
 
     public override fun onDestroy() {

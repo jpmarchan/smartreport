@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.doct.HomeDocActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
 
         <ImageView
             android:id="@+id/imageView3"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -29,6 +31,7 @@
 
         <ImageView
             android:id="@+id/imageView4"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
@@ -44,6 +47,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view2"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/header_doc"
@@ -52,8 +56,8 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
-            style="@style/TextStyle"
             android:id="@+id/textView"
+            style="@style/TextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -64,8 +68,8 @@
             app:layout_constraintTop_toTopOf="@+id/view2" />
 
         <TextView
-            style="@style/TextStyle"
             android:id="@+id/setNameDoc"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -82,8 +86,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        style="@style/TextStyle"
         android:id="@+id/textView6"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -97,70 +101,73 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <EditText
-        style="@style/TextStyle"
         android:id="@+id/dnisearch"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@drawable/bg_edittext"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_edittext"
         android:ems="10"
         android:hint="Nro de DNI"
-        android:paddingHorizontal="15dp"
         android:inputType="number"
+        android:paddingHorizontal="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <TextView
+    <CheckBox
+        android:id="@+id/cbSearch"
         style="@style/TextStyle"
-        android:id="@+id/textView7"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:layout_marginTop="24dp"
         android:text="Búsqueda avanzada"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:onClick="checkBoxClic"
         app:layout_constraintStart_toStartOf="@+id/dnisearch"
         app:layout_constraintTop_toBottomOf="@+id/dnisearch" />
 
     <EditText
-        style="@style/TextStyle"
         android:id="@+id/txtSearchNamePatient"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:ems="10"
         android:background="@drawable/bg_edittext"
-        android:inputType="textPersonName"
+        android:ems="10"
+        android:visibility="gone"
         android:hint="Nombres"
+        android:inputType="textPersonName"
         android:paddingHorizontal="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintStart_toStartOf="@+id/cbSearch"
+        app:layout_constraintTop_toBottomOf="@+id/cbSearch" />
+
+
 
     <EditText
-        style="@style/TextStyle"
         android:id="@+id/txtSearchLasnamePatient"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/bg_edittext"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Apellidos"
+        android:inputType="textPersonName"
         android:paddingHorizontal="15dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtSearchNamePatient"
         app:layout_constraintTop_toBottomOf="@+id/txtSearchNamePatient" />
 
     <Button
-        style="@style/TextStyle"
         android:id="@+id/btnSearchPatient"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -175,5 +182,30 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSearchLasnamePatient" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_navigation"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_nav_home" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_nav_report" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

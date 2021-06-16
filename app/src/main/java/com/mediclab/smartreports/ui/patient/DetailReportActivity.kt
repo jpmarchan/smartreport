@@ -72,7 +72,7 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
             // set US English as language for tts
             val result = tts!!.setLanguage(Locale.US)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Log.e("TTS","The Language specified is not supported!")
+                Log.d("TTS","The Language specified is not supported!")
             } else {
                 buttonSpeak!!.isEnabled = true
                 btnreportorigin!!.isEnabled = true
@@ -139,7 +139,6 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
     }
 
     public override fun onDestroy() {
-        // Shutdown TTS
         if (tts != null) {
             tts!!.stop()
             tts!!.shutdown()

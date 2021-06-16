@@ -98,8 +98,8 @@ class HomePatientActivity : BaseActivity() {
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         val data = response.body()!!
-                        datefechH.text = "00${data.fecha}"
-                        medich.text = "00${data.namedoc} ${data.lastnamedoc}"
+                        datefechH.text = "${data.fecha}"
+                        medich.text = "${data.namedoc} ${data.lastnamedoc}"
                         val id = data.id
                         btndetail.setOnClickListener {
                             goTo(DetailReportActivity::class.java,false,"id_report","$id")

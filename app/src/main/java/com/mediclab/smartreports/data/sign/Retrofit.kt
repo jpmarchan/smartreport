@@ -52,6 +52,7 @@ data class OriginalReport(
 )
 
 
+
 data class ReportsDetail(
     val id: Int,
     val fecha: String,
@@ -65,6 +66,23 @@ data class ReportsDetail(
     val idreportgenerate: Int,
     val statusgenerate: Boolean
     )
+
+
+data class SearchPatientParams(
+    val dni: String
+)
+
+data class ListPatientResponse(
+    val id: Int,
+    val name: String,
+    val lastname: String,
+    val dni: Int,
+    val email: String,
+    val sex: Boolean,
+    val age: Int,
+    val status: Boolean
+)
+
 //detalle reportes con reporte generado
 
 interface ApiService {
@@ -84,6 +102,10 @@ interface ApiService {
     //detalle reporte por id
     @GET("getReportById/{id}")
     fun getReportById(@Header("x-access-token") token: String = Memory.token, @Path("id") reportId: String): Call<ReportsDetail>
+
+    //listado paciente por dni
+    @POST("searchPatientsByDni")
+    fun searchPatientsByDni( @Body SearchPatientParams: SearchPatientParams, @Header("x-access-token") token: String = Memory.token): Call<ListPatientResponse>
 
 }
 

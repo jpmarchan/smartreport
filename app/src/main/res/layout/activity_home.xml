@@ -87,50 +87,105 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view3"
         style="@style/TextStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="379dp"
+        android:layout_height="188dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_edittext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2">
 
         <TextView
-            android:id="@+id/tvEmpty"
+            android:id="@+id/lp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="48dp"
+            android:drawableLeft="@drawable/ic_group"
             android:elevation="2dp"
-            android:text="No existen reportes."
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEmpty1"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:elevation="2dp"
+            android:text="¡Sin novedades!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEmpty2"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:elevation="2dp"
+            android:text="No haz recibido ningún reporte por ahora. "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/lp"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmpty1" />
+
+
+        <TextView
+            android:id="@+id/textViewid"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:text="#Reporte:"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@id/medicreporth"
-            app:layout_constraintEnd_toEndOf="@id/medicreporth"
-            app:layout_constraintStart_toStartOf="@id/textView5h"
-            app:layout_constraintTop_toTopOf="@id/medicreporth" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView4h"
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:text="Recibido:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textViewid"
+            app:layout_constraintTop_toTopOf="@+id/textViewid" />
 
         <TextView
             android:id="@+id/textView5h"
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="Médico:   "
-            app:layout_constraintStart_toStartOf="@+id/textView4h"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textViewid"
             app:layout_constraintTop_toBottomOf="@+id/textView4h" />
+
+        <TextView
+            android:id="@+id/idreport"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:maxLines="1"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewid"
+            app:layout_constraintTop_toTopOf="@+id/textViewid"
+            tools:text="@tools:sample/lorem/random" />
 
         <TextView
             android:id="@+id/datefechh"
@@ -140,7 +195,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:maxLines="1"
-            android:text="TextView"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/textView4h"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView4h"
@@ -155,7 +210,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:maxLines="1"
-            android:text="TextView"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/textView5h"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView5h"
@@ -173,8 +228,9 @@
             android:text="Ver detalle"
             android:textAllCaps="false"
             android:textColor="#FF6961"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/datefechh"
-            app:layout_constraintTop_toBottomOf="@+id/tvEmpty" />
+            app:layout_constraintTop_toBottomOf="@+id/medicreporth" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -186,25 +242,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Historial de reportes"
+        android:text="Beneficios"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHistory"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_history" />
+
 
     <View
         android:id="@+id/view"
@@ -243,5 +285,53 @@
             android:src="@drawable/ic_nav_report" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView19"
+        style="@style/TextStyle"
+        android:layout_width="85dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/new_green"
+        android:paddingHorizontal="15dp"
+        android:text="NUEVO"
+        android:textColor="@color/bg"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView20"
+        style="@style/TextStyle"
+        android:layout_width="174dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Reportes con conceptos sugeridos"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        style="@style/TextStyle"
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Analisis mejor detallado"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_mujer"
+        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintTop_toTopOf="@+id/textView19" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

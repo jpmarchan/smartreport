@@ -54,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
+            style="@style/TextStyle"
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,6 +66,7 @@
             app:layout_constraintTop_toTopOf="@+id/view2" />
 
         <TextView
+            style="@style/TextStyle"
             android:id="@+id/setNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,6 +84,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,6 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,6 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,6 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/codereport"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -121,6 +127,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/dateInsert"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -132,6 +139,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/nameMedicDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -143,6 +151,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView11" />
 
     <View
+        style="@style/TextStyle"
         android:id="@+id/divider"
         android:layout_width="365dp"
         android:layout_height="1dp"
@@ -153,6 +162,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nameMedicDetail" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -181,6 +191,7 @@
             android:src="@drawable/ic_nav_home"/>
 
         <ImageView
+            style="@style/TextStyle"
             android:id="@+id/listReportD"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -207,6 +218,7 @@
 
 
             <TextView
+                style="@style/TextStyle"
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
@@ -222,6 +234,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/TextStyle"
                 android:id="@+id/txtreportimproved"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -246,8 +259,9 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="134dp"
-                android:layout_height="21dp"
+                style="@style/TextStyle"
+                android:layout_width="137dp"
+                android:layout_height="19dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/report_generate"
                 android:paddingHorizontal="15dp"

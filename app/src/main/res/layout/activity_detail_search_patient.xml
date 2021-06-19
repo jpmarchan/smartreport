@@ -84,12 +84,16 @@
             tools:text="Doc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginEnd="32dp"
+        android:text="Resultado de búsqueda"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -150,7 +154,6 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
             android:maxLines="1"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -165,7 +168,6 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
             android:maxLines="1"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -183,14 +185,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
-            style="@style/TextStyle"
-
             android:id="@+id/sexd"
+
+            style="@style/TextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/textView13"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView13"
@@ -214,7 +215,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/textView17"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView17"
@@ -265,6 +265,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <TextView
+        style="@style/TextStyle"
         android:id="@+id/textView19d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -276,6 +277,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cbpatientd" />
 
     <RadioButton
+        style="@style/TextStyle"
         android:id="@+id/radioButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -287,6 +289,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView19d" />
 
     <RadioButton
+        style="@style/TextStyle"
         android:id="@+id/radioButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -296,6 +299,29 @@
         android:text="Mediante voz"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
+
+    <TextView
+        android:id="@+id/textViewDoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:drawableLeft="@drawable/ic_docasing"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/radioButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioButton2"
+        app:layout_constraintTop_toTopOf="@+id/radioButton1" />
+
+    <TextView
+        android:id="@+id/textViewDocs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:drawableLeft="@drawable/ic_docs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,10 +22,15 @@ class ReportsListActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
     lateinit var setName: TextView
     lateinit var rvReports: RecyclerView
     lateinit var idUser: String
-    lateinit var tvEmpty: TextView
+    lateinit var lpl: TextView
+    lateinit var text1: TextView
+    lateinit var text2: TextView
+    lateinit var lplh: TextView
+    lateinit var text3: TextView
+    lateinit var text4: TextView
     lateinit var originalReportList: List<OriginalReport>
     lateinit var btnHome: ImageView
-
+    lateinit var rvHistory: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,8 +49,15 @@ class ReportsListActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
     private fun bind() {
         rvReports = findViewById(R.id.rvReports)
         setName = findViewById(R.id.setName)
-        tvEmpty = findViewById(R.id.tvEmpty)
+        lpl = findViewById(R.id.lpl)
+        text1 = findViewById(R.id.tvEmpty1l)
+        text2 = findViewById(R.id.tvEmptyl)
+        lplh = findViewById(R.id.lplh)
+        text3 = findViewById(R.id.tvEmpty1lh)
+        text4 = findViewById(R.id.tvEmptylh)
         btnHome = findViewById(R.id.btnHome)
+        rvHistory = findViewById(R.id.rvHistory)
+
     }
 
     private fun loadReportsFromService(listener: ReportsByPatientAdapter.OnItemClickListener) {
@@ -60,13 +72,27 @@ class ReportsListActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
 
                         if (originalReportList.isNotEmpty()) {
                             val listTrue = originalReportList.filter { report -> report.status }
-                            val adapter = ReportsByPatientAdapter(listTrue, listener)
-                            rvReports.adapter = adapter
+                            if(listTrue.isNotEmpty()){
+                                val adapter = ReportsByPatientAdapter(listTrue, listener)
+                                rvReports.adapter = adapter
+
+                            }else{
+                                visibleReports()
+                            }
+
+
+                            val listFalse= originalReportList.filter { report -> !report.status }
+                            if(listFalse.isNotEmpty()){
+                                val adapterHistory = ReportHistoryAdapter(listFalse)
+                                rvHistory.adapter = adapterHistory
+                            }else{
+                                visibleHistoryReports()
+                            }
+
 
                         }else{
-                            tvEmpty.visibility = View.VISIBLE
-                            rvReports.visibility = View.INVISIBLE
-
+                            visibleReports()
+                            visibleHistoryReports()
                         }
 
                     }
@@ -82,6 +108,19 @@ class ReportsListActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
             goTo(HomePatientActivity::class.java)
         }
     }
+    private fun visibleReports(){
+        lpl.visibility = View.VISIBLE
+        text1.visibility = View.VISIBLE
+        text2.visibility = View.VISIBLE
+        rvReports.visibility = View.INVISIBLE
+    }
+    private fun visibleHistoryReports(){
+        lplh.visibility = View.VISIBLE
+        text3.visibility = View.VISIBLE
+        text4.visibility = View.VISIBLE
+        rvHistory.visibility = View.INVISIBLE
+    }
+
 
     override fun onItemClick(id: Int) {
         goTo(DetailReportActivity::class.java,false,"id_report","$id")

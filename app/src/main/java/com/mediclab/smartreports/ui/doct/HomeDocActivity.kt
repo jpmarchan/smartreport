@@ -53,6 +53,10 @@ class HomeDocActivity : BaseActivity() {
             if (statusCb){
 
             }else{
+                if (dnisearc.text.isEmpty()) {
+                    dnisearc.error = "ingrese dni"
+                    return@setOnClickListener
+                }
                 Logger.d("entrando")
                     goTo(DetailSearchPatientActivity::class.java, false,"dnish","${dnisearc.text}")
 

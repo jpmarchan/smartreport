@@ -84,28 +84,57 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/tvEmpty"
+        android:id="@+id/lpl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No existen reportes."
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:drawableLeft="@drawable/ic_group"
         android:elevation="2dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@id/rvReports"
-        app:layout_constraintEnd_toEndOf="@id/rvReports"
-        app:layout_constraintTop_toTopOf="@id/rvReports"
-        app:layout_constraintBottom_toBottomOf="@id/rvReports"
-        />
+        app:layout_constraintTop_toTopOf="@id/rvReports" />
+
+    <TextView
+        android:id="@+id/tvEmpty1l"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:elevation="2dp"
+        android:text="¡Sin novedades!"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/lpl"
+        app:layout_constraintTop_toTopOf="@id/rvReports" />
+
+    <TextView
+        android:id="@+id/tvEmptyl"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:elevation="2dp"
+        android:visibility="gone"
+        android:text="No haz recibido ningún reporte por ahora. "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lpl"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmpty1l" />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReports"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="361dp"
+        android:layout_height="264dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/view"
@@ -122,6 +151,74 @@
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/textView10"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Historial de reportes"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/rvReports" />
+
+    <TextView
+        android:id="@+id/lplh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:drawableLeft="@drawable/ic_group"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/rvHistory"
+        app:layout_constraintTop_toTopOf="@id/rvHistory" />
+
+    <TextView
+        android:id="@+id/tvEmpty1lh"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
+        android:elevation="2dp"
+        android:text="¡Sin novedades!"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/lplh"
+        app:layout_constraintTop_toTopOf="@id/rvHistory" />
+
+    <TextView
+        android:id="@+id/tvEmptylh"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:elevation="2dp"
+        android:visibility="gone"
+        android:text="No exsiten reportes en el historial."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lplh"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmpty1lh" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_history" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

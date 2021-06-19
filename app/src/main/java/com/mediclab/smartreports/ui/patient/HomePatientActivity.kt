@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
 import com.mediclab.smartreports.R
 import com.mediclab.smartreports.adapters.ReportHistoryAdapter
@@ -21,16 +22,19 @@ import retrofit2.Response
 class HomePatientActivity : BaseActivity() {
 
     lateinit var setName: TextView
-    lateinit var rvHistory: RecyclerView
     lateinit var idUser: String
-    lateinit var tvEmpty: TextView
-    lateinit var originalReportList: List<OriginalReport>
+    lateinit var tvEmpty1: TextView
+    lateinit var lp: TextView
+    lateinit var tvEmpty2: TextView
+
     lateinit var imgListReports: ImageView
     lateinit var datefechH: TextView
     lateinit var btndetail: Button
     lateinit var medich: TextView
+    lateinit var nroreport: TextView
     lateinit var titledate: TextView
     lateinit var titlename: TextView
+    lateinit var idreport: TextView
 
 
 
@@ -48,47 +52,23 @@ class HomePatientActivity : BaseActivity() {
     }
 
     private fun bind() {
-        rvHistory = findViewById(R.id.rvHistory)
         setName = findViewById(R.id.setName)
-        tvEmpty = findViewById(R.id.tvEmpty)
+        tvEmpty1 = findViewById(R.id.tvEmpty1)
+        tvEmpty2 = findViewById(R.id.tvEmpty2)
+        lp = findViewById(R.id.lp)
         datefechH = findViewById(R.id.datefechh)
         medich = findViewById(R.id.medicreporth)
         btndetail = findViewById(R.id.btndetailh)
         imgListReports = findViewById(R.id.btnList)
         titledate = findViewById(R.id.textView4h)
         titlename = findViewById(R.id.textView5h)
+        nroreport = findViewById(R.id.textViewid)
+        idreport = findViewById(R.id.idreport)
 
     }
 
     private fun loadReportsFromService() {
-        Api.retrofitService.getReportByPatient(Memory.token, idUser)
-            .enqueue(object : Callback<List<OriginalReport>> {
-                override fun onResponse(
-                    call: Call<List<OriginalReport>>,
-                    response: Response<List<OriginalReport>>
-                ) {
-                    if (response.isSuccessful && response.body() != null) {
-                        originalReportList = response.body()!!
 
-                        if (originalReportList.isNotEmpty()) {
-
-                            val listFalse= originalReportList.filter { report -> !report.status }
-                            val adapterHistory = ReportHistoryAdapter(listFalse)
-                            rvHistory.adapter = adapterHistory
-                        }else{
-                            tvEmpty.visibility = View.VISIBLE
-                            datefechH.visibility = View.INVISIBLE
-                            medich.visibility = View.INVISIBLE
-                            btndetail.visibility = View.INVISIBLE
-                            titledate.visibility = View.INVISIBLE
-                            titlename.visibility = View.INVISIBLE
-                        }
-                    }
-                }
-                override fun onFailure(call: Call<List<OriginalReport>>, t: Throwable) {
-                    Logger.d("onFailure: ${t.message}")
-                }
-            })
 
         Api.retrofitService.getReportByPatientOne(Memory.token, idUser)
             .enqueue(object : Callback<OriginalReport> {
@@ -97,13 +77,16 @@ class HomePatientActivity : BaseActivity() {
                     response: Response<OriginalReport>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
+                        reportValidateNoEmpty()
                         val data = response.body()!!
+                        idreport.text = "000${data.id}"
                         datefechH.text = "${data.fecha}"
                         medich.text = "${data.namedoc} ${data.lastnamedoc}"
                         val id = data.id
                         btndetail.setOnClickListener {
                             goTo(DetailReportActivity::class.java,false,"id_report","$id")
                         }
+
                     }
                 }
                 override fun onFailure(call: Call<OriginalReport>, t: Throwable) {
@@ -112,6 +95,20 @@ class HomePatientActivity : BaseActivity() {
             })
 
 
+
+    }
+
+    private fun reportValidateNoEmpty(){
+        nroreport.visibility = View.VISIBLE
+        idreport.visibility = View.VISIBLE
+        datefechH.visibility = View.VISIBLE
+        medich.visibility = View.VISIBLE
+        btndetail.visibility = View.VISIBLE
+        titledate.visibility = View.VISIBLE
+        titlename.visibility = View.VISIBLE
+        tvEmpty1.visibility = View.INVISIBLE
+        tvEmpty2.visibility = View.INVISIBLE
+        lp.visibility = View.INVISIBLE
 
     }
     private fun onClickEvents() {

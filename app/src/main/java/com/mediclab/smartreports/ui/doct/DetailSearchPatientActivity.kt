@@ -11,12 +11,14 @@ import com.mediclab.smartreports.data.sign.Api
 import com.mediclab.smartreports.data.sign.ListPatientResponse
 import com.mediclab.smartreports.data.sign.SearchPatientParams
 import com.mediclab.smartreports.ui.BaseActivity
+import com.mediclab.smartreports.utils.Memory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class DetailSearchPatientActivity : BaseActivity() {
 
+    lateinit var namedoc : TextView
     lateinit var namep : TextView
     lateinit var dnid : TextView
     lateinit var sexd : TextView
@@ -28,8 +30,8 @@ class DetailSearchPatientActivity : BaseActivity() {
     private lateinit var radioButton1: RadioButton
     private lateinit var radioButton2: RadioButton
     private  var idpaient : Int = 0
-
-
+    lateinit var docsimg : TextView
+    lateinit var docsimgasing : TextView
 
 
 
@@ -37,6 +39,7 @@ class DetailSearchPatientActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_search_patient)
         bind()
+        namedoc.text = Memory.userName
         listPatiend()
     }
 
@@ -49,6 +52,9 @@ class DetailSearchPatientActivity : BaseActivity() {
         cbpatientd = findViewById(R.id.cbpatientd)
         radioButton1 = findViewById(R.id.radioButton1)
         radioButton2 = findViewById(R.id.radioButton2)
+        namedoc = findViewById(R.id.setNameDoc)
+        docsimg = findViewById(R.id.textViewDocs)
+        docsimgasing = findViewById(R.id.textViewDoc)
     }
 
     fun listPatiend(){
@@ -104,11 +110,16 @@ class DetailSearchPatientActivity : BaseActivity() {
             radioButton1.visibility = View.VISIBLE
             radioButton2.visibility = View.VISIBLE
             textView19d.visibility = View.VISIBLE
+            docsimg.visibility = View.GONE
+            docsimgasing.visibility = View.VISIBLE
 
         }else{
             radioButton1.visibility = View.GONE
             radioButton2.visibility = View.GONE
             textView19d.visibility = View.GONE
+            docsimgasing.visibility = View.GONE
+            docsimg.visibility = View.VISIBLE
+
             statusCb2 = false
         }
     }

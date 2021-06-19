@@ -52,13 +52,13 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
     <CheckBox
-        style="@style/TextStyle"
         android:id="@+id/cbRemember"
+        style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Recuerdame"
-        app:layout_constraintEnd_toEndOf="@+id/txt_pass"
+        android:text="Recordar"
+        app:layout_constraintStart_toStartOf="@+id/txt_pass"
         app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
 
     <Button

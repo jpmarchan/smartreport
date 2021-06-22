@@ -249,6 +249,8 @@
 
     </LinearLayout>
 
+
+
     <CheckBox
         android:id="@+id/cbpatientd"
         style="@style/TextStyle"
@@ -258,8 +260,8 @@
         android:layout_marginTop="16dp"
         android:onClick="checkBoxClic1"
         android:text="Registrar como mi paciente"
-        android:visibility="gone"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -271,8 +273,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="45dp"
-        android:visibility="gone"
         android:text="Emitir reporte"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/cbpatientd" />
 
@@ -295,8 +297,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:visibility="gone"
         android:text="Mediante voz"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
 
@@ -305,12 +307,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:drawableLeft="@drawable/ic_docasing"
         android:visibility="gone"
+        android:drawableLeft="@drawable/ic_docasing"
         app:layout_constraintBottom_toBottomOf="@+id/radioButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/radioButton2"
         app:layout_constraintTop_toTopOf="@+id/radioButton1" />
+    <Button
+        style="@style/TextStyle"
+        android:id="@+id/btnsendreport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bg_button"
+        android:text="Emitir reporte  >"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView19d"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoc" />
 
     <TextView
         android:id="@+id/textViewDocs"
@@ -322,6 +340,8 @@
         app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.mediclab.smartreports.ui.doct
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.TextView
@@ -29,6 +30,8 @@ class DetailSearchPatientActivity : BaseActivity() {
     private lateinit var cbpatientd: CheckBox
     private lateinit var radioButton1: RadioButton
     private lateinit var radioButton2: RadioButton
+    private lateinit var btnsent: Button
+
     private  var idpaient : Int = 0
     lateinit var docsimg : TextView
     lateinit var docsimgasing : TextView
@@ -41,6 +44,7 @@ class DetailSearchPatientActivity : BaseActivity() {
         bind()
         namedoc.text = Memory.userName
         listPatiend()
+        onClickEvents()
     }
 
     private  fun bind(){
@@ -55,6 +59,13 @@ class DetailSearchPatientActivity : BaseActivity() {
         namedoc = findViewById(R.id.setNameDoc)
         docsimg = findViewById(R.id.textViewDocs)
         docsimgasing = findViewById(R.id.textViewDoc)
+        btnsent = findViewById(R.id.btnsendreport)
+    }
+
+    private fun onClickEvents() {
+        btnsent.setOnClickListener {
+            goTo(SpeechReportActivity::class.java)
+        }
     }
 
     fun listPatiend(){
@@ -110,6 +121,7 @@ class DetailSearchPatientActivity : BaseActivity() {
             radioButton1.visibility = View.VISIBLE
             radioButton2.visibility = View.VISIBLE
             textView19d.visibility = View.VISIBLE
+            btnsent.visibility = View.VISIBLE
             docsimg.visibility = View.GONE
             docsimgasing.visibility = View.VISIBLE
 
@@ -118,6 +130,7 @@ class DetailSearchPatientActivity : BaseActivity() {
             radioButton2.visibility = View.GONE
             textView19d.visibility = View.GONE
             docsimgasing.visibility = View.GONE
+            btnsent.visibility = View.GONE
             docsimg.visibility = View.VISIBLE
 
             statusCb2 = false

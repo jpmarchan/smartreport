@@ -4,44 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.doct.SpeechReportActivity">
+    tools:context=".ui.doct.WriteReportActivity">
 
     <TextView
-        style="@style/TextStyle"
         android:id="@+id/txtmessage"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="Grabar reporte"
+        android:text="Redactar reporte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/textVoice"
+        android:id="@+id/textWrite"
         style="@style/TextStyle"
         android:layout_width="370dp"
         android:layout_height="484dp"
         android:layout_marginTop="24dp"
-        android:text=""
+        android:hint="Ingrese su reporte"
         app:layout_constraintEnd_toEndOf="@+id/txtmessage"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="@+id/txtmessage"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
-    <ImageButton
-        android:id="@+id/voiceBtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/textVoice"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/textVoice"
-        app:layout_constraintTop_toBottomOf="@+id/textVoice"
-        app:srcCompat="@drawable/ic_coolicon"/>
+
 
     <View
         android:id="@+id/divider2"
@@ -53,35 +43,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtmessage" />
 
-    <TextView
-        style="@style/TextStyle"
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Grabar"
-        app:layout_constraintEnd_toEndOf="@+id/voiceBtn"
-        app:layout_constraintStart_toStartOf="@+id/voiceBtn"
-        app:layout_constraintTop_toBottomOf="@+id/voiceBtn" />
 
     <Button
-        android:id="@+id/buttonSendR"
+        android:id="@+id/buttonSendReport"
         style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="68dp"
         android:background="@drawable/bg_button"
         android:text="Enviar reporte >"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textVoice"
-        app:layout_constraintStart_toStartOf="@+id/textVoice"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
+        app:layout_constraintEnd_toEndOf="@+id/textWrite"
+        app:layout_constraintStart_toStartOf="@+id/textWrite"
+        app:layout_constraintTop_toBottomOf="@+id/textWrite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

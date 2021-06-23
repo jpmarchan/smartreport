@@ -113,6 +113,52 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
 
+
+        <TextView
+            android:id="@+id/lpnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="48dp"
+            android:drawableLeft="@drawable/ic_group"
+            android:elevation="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEmpty1nd"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:elevation="2dp"
+            android:text="¡Sin novedades!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lpnd"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvEmpty2nd"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="40dp"
+            android:elevation="2dp"
+            android:text="No se encontro el DNI."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/lpnd"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmpty1nd" />
+
+
+
         <CheckBox
             android:id="@+id/cbpatient"
             style="@style/TextStyle"
@@ -122,29 +168,31 @@
             android:layout_marginEnd="8dp"
             android:onClick="checkBoxClic"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView4nd"
             style="@style/TextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="Nombres:"
-
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbpatient" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView5nd"
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:visibility="gone"
             android:text="Dni:             "
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintStart_toStartOf="@+id/textView4nd"
+            app:layout_constraintTop_toBottomOf="@+id/textView4nd" />
 
         <TextView
             android:id="@+id/namep"
@@ -154,10 +202,11 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
             android:maxLines="1"
-            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4nd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/textView4nd"
+            app:layout_constraintTop_toTopOf="@+id/textView4nd"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
@@ -168,46 +217,49 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
             android:maxLines="1"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5nd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/textView5nd"
+            app:layout_constraintTop_toTopOf="@+id/textView5nd"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
             style="@style/TextStyle"
-            android:id="@+id/textView13"
+            android:id="@+id/textView13nd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Sexo:          "
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textView4nd"
+            app:layout_constraintTop_toBottomOf="@+id/textView5nd" />
 
         <TextView
             android:id="@+id/sexd"
-
             style="@style/TextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView13"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView13nd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toTopOf="@+id/textView13" />
+            app:layout_constraintStart_toEndOf="@+id/textView13nd"
+            app:layout_constraintTop_toTopOf="@+id/textView13nd" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textView17nd"
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"
             android:text="Edad:          "
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintStart_toStartOf="@+id/textView4nd"
+            app:layout_constraintTop_toBottomOf="@+id/textView13nd" />
 
         <TextView
             android:id="@+id/aged"
@@ -215,10 +267,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView17"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView17nd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
-            app:layout_constraintTop_toTopOf="@+id/textView17" />
+            app:layout_constraintStart_toEndOf="@+id/textView17nd"
+            app:layout_constraintTop_toTopOf="@+id/textView17nd" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -286,6 +339,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Mediante texto"
+        android:onClick="onRadioButtonClicked"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/textView19d" />
@@ -297,6 +351,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:onClick="onRadioButtonClicked"
         android:text="Mediante voz"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/view3"

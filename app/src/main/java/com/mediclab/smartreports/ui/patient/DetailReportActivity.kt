@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.mediclab.smartreports.R
 import com.mediclab.smartreports.data.sign.Api
 import com.mediclab.smartreports.data.sign.ReportsDetail
+import com.mediclab.smartreports.data.sign.WatchReportResponse
 import com.mediclab.smartreports.ui.BaseActivity
 import com.mediclab.smartreports.utils.Logger
 import com.mediclab.smartreports.utils.Memory
@@ -84,6 +85,7 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
 
     }
 
+
     private fun getReportById(){
         val idreport= getIntent().getExtras()?.get("id_report");
         Api.retrofitService.getReportById(Memory.token,idreport.toString())
@@ -104,6 +106,19 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
                 }
 
                 override fun onFailure(call: Call<ReportsDetail>, t: Throwable) {
+                    Logger.d("onFailure: ${t.message}")
+                }
+            })
+
+        Api.retrofitService.WatchByReport(Memory.token,idreport.toString())
+            .enqueue(object : Callback<WatchReportResponse> {
+                override fun onResponse(
+                    call: Call<WatchReportResponse>,
+                    response: Response<WatchReportResponse>
+                ) {
+                }
+
+                override fun onFailure(call: Call<WatchReportResponse>, t: Throwable) {
                     Logger.d("onFailure: ${t.message}")
                 }
             })

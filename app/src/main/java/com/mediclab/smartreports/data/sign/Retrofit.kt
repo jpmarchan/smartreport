@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 private const val URL = "http://api-smartreport.codeksora.com/"
-//private const val URL = "http://23ad2963923d.ngrok.io"
+//private const val URL = "http://ffe518e21eca.ngrok.io"
 
 data class SignInParams(
     val email: String,
@@ -67,6 +67,11 @@ data class ReportsDetail(
     val statusgenerate: Boolean
     )
 
+data class WatchReportResponse(
+    val message: String,
+    val reponseCode: Boolean,
+
+)
 
 data class SearchPatientParams(
     val dni: String
@@ -80,9 +85,36 @@ data class ListPatientResponse(
     val email: String,
     val sex: Boolean,
     val age: Int,
-    val status: Boolean
+    val status: Boolean,
+    val fkidmedic: Int
+)
+// Asignar paciente a medico
+
+data class AsingPatientMedicParams(
+    val idpatient: Int,
+    val idmedic: Int
 )
 
+data class AsingPatientMedicResponse(
+    val status: Boolean,
+    val message: String
+)
+
+
+//crear reporte
+
+data class CreateReportParams(
+    val timestamp: String,
+    val idmedic: Int,
+    val idpatient: String ?,
+    val detail: String
+)
+
+data class CreateReportResponse(
+    val responseMessage: String,
+    val reponseCode: Boolean,
+    val idReporOriginal: Int
+)
 //detalle reportes con reporte generado
 
 interface ApiService {
@@ -103,9 +135,23 @@ interface ApiService {
     @GET("getReportById/{id}")
     fun getReportById(@Header("x-access-token") token: String = Memory.token, @Path("id") reportId: String): Call<ReportsDetail>
 
+    //Visualizar reporte
+    @GET("WatchByReport/{id}")
+    fun WatchByReport(@Header("x-access-token") token: String = Memory.token, @Path("id") reportId: String): Call<WatchReportResponse>
+
     //listado paciente por dni
     @POST("searchPatientsByDni")
     fun searchPatientsByDni( @Body SearchPatientParams: SearchPatientParams, @Header("x-access-token") token: String = Memory.token): Call<ListPatientResponse>
+
+
+    //Asignar paciente a medico
+    @PUT("asingPatientMedic")
+    fun asingPatientMedic( @Body AsingPatientMedicParams: AsingPatientMedicParams, @Header("x-access-token") token: String = Memory.token): Call<AsingPatientMedicResponse>
+
+    //Crear reporte
+    @POST("report")
+    fun report( @Body CreateReportParams: CreateReportParams, @Header("x-access-token") token: String = Memory.token): Call<CreateReportResponse>
+
 
 }
 

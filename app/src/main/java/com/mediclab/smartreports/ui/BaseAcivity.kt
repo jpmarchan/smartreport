@@ -48,6 +48,7 @@ open class BaseActivity : AppCompatActivity() {
         startActivity(mIntent)
     }
 
+
     fun showDialogProgress(message: String = "") {
         progress = ProgressDialog.show(
             this, "",

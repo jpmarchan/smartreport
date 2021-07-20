@@ -98,8 +98,8 @@
         app:layout_constraintTop_toBottomOf="@+id/emailUserRegister" />
 
     <Button
-        style="@style/TextStyle"
         android:id="@+id/btnUserRegister"
+        style="@style/TextStyle"
         android:layout_width="347dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -110,7 +110,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/lastnameUserRegister"
         app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
-        app:layout_constraintTop_toBottomOf="@+id/passCreate" />
+        app:layout_constraintTop_toBottomOf="@+id/terminosid" />
 
     <TextView
         style="@style/TextStyle"
@@ -157,5 +157,26 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
         app:layout_constraintTop_toBottomOf="@+id/phoneUserRegister" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Acepto los términos y condiciones de uso"
+        app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/passCreate" />
+
+    <TextView
+        android:id="@+id/terminosid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="-términos"
+        android:textColor="#84B6F4"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/nameUserRegister"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

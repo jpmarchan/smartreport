@@ -22,6 +22,7 @@ class UserCreateActivity : BaseActivity() {
     lateinit var passCreate: TextInputEditText
     lateinit var btnCreate: Button
     lateinit var existAccount: TextView
+    lateinit var terms: TextView
 
 
 
@@ -43,6 +44,7 @@ class UserCreateActivity : BaseActivity() {
         passCreate = findViewById(R.id.passCreate)
         btnCreate = findViewById(R.id.btnUserRegister)
         existAccount = findViewById(R.id.existAccount)
+        terms = findViewById(R.id.terminosid)
 
         changeListener(nameCreate, btnCreate)
         changeListener(lastNameCreate, btnCreate)
@@ -116,6 +118,9 @@ class UserCreateActivity : BaseActivity() {
     private fun onClickEvents() {
         existAccount.setOnClickListener {
             goTo(LoginActivity::class.java)
+        }
+        terms.setOnClickListener {
+            goTo(TermsActivity::class.java)
         }
     }
 

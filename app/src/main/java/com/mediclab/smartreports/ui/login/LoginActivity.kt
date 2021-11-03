@@ -14,6 +14,7 @@ import com.mediclab.smartreports.utils.Logger
 import com.mediclab.smartreports.utils.Memory
 import com.google.android.material.textfield.TextInputEditText
 import com.mediclab.smartreports.ui.doct.HomeDocActivity
+import com.mediclab.smartreports.ui.patient.UpdateActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -129,7 +130,7 @@ class LoginActivity : BaseActivity() {
                 Memory.delete("pass")
             }
             if(role == 1){
-                goTo(HomePatientActivity::class.java, true)
+                goTo(UpdateActivity::class.java, true)
             }else{
                 goTo(HomeDocActivity::class.java, true)
             }

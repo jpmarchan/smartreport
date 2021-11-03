@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Smartreports"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.users.TermsActivity"></activity>
+        <activity
+            android:name=".ui.patient.UpdateActivity"
+            android:exported="true" />
+        <activity android:name=".ui.users.TermsActivity" />
         <activity android:name=".ui.doct.WriteReportActivity" />
         <activity android:name=".ui.doct.SpeechReportActivity" />
         <activity android:name=".ui.doct.DetailSearchPatientActivity" />

@@ -3,6 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/bg_button.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/ic_header_right.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/ic_rectangle_5.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/notification_color_green.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/receta1_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/receta_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/recycler.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/report_generate.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/drawable/report_original.xml" value="0.3828125" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_date_picker.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_detail_report.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_detail_search_patient.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_dietas_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_home_dock.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_reports_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_speech_report.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_terms.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_update.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_user_create.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/activity_write_report.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/item_dietas.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/item_history.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/item_reports.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.31302083333333336" />
         <entry key="app/src/main/res/layout/activity_detail_report.xml" value="0.3104166666666667" />
         <entry key="app/src/main/res/layout/activity_detail_search_patient.xml" value="0.3104166666666667" />

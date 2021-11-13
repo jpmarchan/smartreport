@@ -14,6 +14,7 @@ import com.mediclab.smartreports.data.sign.Api
 import com.mediclab.smartreports.data.sign.CreateReportParams
 import com.mediclab.smartreports.data.sign.CreateReportResponse
 import com.mediclab.smartreports.ui.BaseActivity
+import com.mediclab.smartreports.ui.patient.HomePatientActivity
 import com.mediclab.smartreports.utils.Memory
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,7 +63,9 @@ class SpeechReportActivity : BaseActivity() {
                         response.body()?.let {
                             if(it.reponseCode == true){
                                 showToast("Reporte enviado con exito")
-                                onBackPressed()
+                                goTo(DatePickerActivity::class.java)
+
+
                             }else{
                                 showToast("Error al enviar el reporte")
                             }

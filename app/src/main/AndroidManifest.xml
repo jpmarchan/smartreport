@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Smartreports"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.doct.DietasListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.doct.DatePickerActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.patient.UpdateActivity"
             android:exported="true" />
         <activity android:name=".ui.users.TermsActivity" />

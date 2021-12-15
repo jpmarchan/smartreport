@@ -30,7 +30,7 @@
 
     <TextView
         style="@style/TextStyle"
-        android:id="@+id/datefech"
+        android:id="@+id/namedieta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,7 +45,7 @@
 
     <TextView
         style="@style/TextStyle"
-        android:id="@+id/medicreport"
+        android:id="@+id/description1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -59,7 +59,7 @@
         tools:text="@tools:sample/lorem/random"/>
 
     <Button
-        android:id="@+id/btndetail"
+        android:id="@+id/btndetail1"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,14 +69,14 @@
         android:textAllCaps="false"
         android:textColor="#FF6961"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/datefech"
-        app:layout_constraintTop_toBottomOf="@+id/medicreport"
+        app:layout_constraintEnd_toEndOf="@+id/namedieta"
+        app:layout_constraintTop_toBottomOf="@+id/description1"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="351dp"
-        android:layout_height="112dp"
+        android:layout_width="369dp"
+        android:layout_height="119dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

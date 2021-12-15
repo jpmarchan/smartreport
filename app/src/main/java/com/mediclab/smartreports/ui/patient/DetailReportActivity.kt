@@ -31,6 +31,7 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
     lateinit var txtreportoriginal: TextView
     lateinit var imgListReports: ImageView
     lateinit var btnHome : ImageView
+    lateinit var dietassugeridas : Button
 
     private var pitch= 1.0
     private var speed= 1.0
@@ -64,11 +65,11 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
         buttonSpeak = findViewById(R.id.btnSpeech)
         imgListReports = findViewById(R.id.listReportD)
         btnHome = findViewById(R.id.btnhomed)
+        dietassugeridas = findViewById(R.id.dietassugeridas)
 
     }
 
     override fun onInit(status: Int) {
-
         if (status == TextToSpeech.SUCCESS) {
             // set US English as language for tts
             val result = tts!!.setLanguage(Locale.US)
@@ -78,7 +79,6 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
                 buttonSpeak!!.isEnabled = true
                 btnreportorigin!!.isEnabled = true
             }
-
         } else {
             Log.e("TTS", "Initilization Failed!")
         }
@@ -104,7 +104,6 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
 
                     }
                 }
-
                 override fun onFailure(call: Call<ReportsDetail>, t: Throwable) {
                     Logger.d("onFailure: ${t.message}")
                 }
@@ -146,10 +145,14 @@ class DetailReportActivity : BaseActivity(), TextToSpeech.OnInitListener {
 
     private fun onClickEvents() {
         btnHome.setOnClickListener {
-            goTo(HomePatientActivity::class.java)
+            goTo(HomePatientActivity::class.java,true)
         }
         imgListReports.setOnClickListener {
-            goTo(ReportsListActivity::class.java)
+            goTo(ReportsListActivity::class.java,true)
+        }
+        dietassugeridas.setOnClickListener {
+            val idreport= getIntent().getExtras()?.get("id_report");
+            goTo(DetailDietaActivity::class.java,false,"idreport", "$idreport")
         }
     }
 

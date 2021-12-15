@@ -43,12 +43,7 @@ class SpeechReportActivity : BaseActivity() {
     }
 
     private fun onClickEvents() {
-        btn.setOnClickListener {
-        speak()
-        }
-
         buttonSendR.setOnClickListener {
-
             val currentTimestamp = System.currentTimeMillis()
 
             val idpatient = getIntent().getExtras()?.get("idpatient")
@@ -62,22 +57,26 @@ class SpeechReportActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         response.body()?.let {
                             if(it.reponseCode == true){
-                                showToast("Reporte enviado con exito")
-                                goTo(DatePickerActivity::class.java)
-
-
+                                goTo(DietasListActivity::class.java,false, "idreport", "${it.idReporOriginal}")
                             }else{
                                 showToast("Error al enviar el reporte")
                             }
                         }
                     } else {
                     }
-                }
-                override fun onFailure(call: Call<CreateReportResponse>, t: Throwable) {
+            }
+             override fun onFailure(call: Call<CreateReportResponse>, t: Throwable) {
 
-                }
+             }
             })
+
+
         }
+        btn.setOnClickListener {
+        speak()
+        }
+
+
     }
 
     private fun speak() {

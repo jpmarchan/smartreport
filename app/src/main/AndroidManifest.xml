@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Smartreports"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.doct.DetailDietaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.doct.DietasListActivity"
             android:exported="true" />
         <activity
@@ -26,13 +29,13 @@
         <activity android:name=".ui.doct.SpeechReportActivity" />
         <activity android:name=".ui.doct.DetailSearchPatientActivity" />
         <activity android:name=".ui.patient.ReportsListActivity" />
+        <activity android:name=".ui.patient.DetailDietaActivity" />
         <activity android:name=".ui.patient.DetailReportActivity" />
         <activity android:name=".ui.doct.HomeDocActivity" />
         <activity android:name=".ui.patient.HomePatientActivity" />
         <activity
             android:name=".ui.users.UserCreateActivity"
             android:windowSoftInputMode="stateUnchanged|adjustResize" />
-        <activity android:name=".ui.users.UsersActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:windowSoftInputMode="stateUnchanged|adjustResize">
@@ -42,7 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -32,6 +32,34 @@
         <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/layout/item_reports.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/mipmap-anydpi-v26/receta1.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/jampi/AndroidStudioProjects/smartreport/app/src/main/res/mipmap-anydpi-v26/receta1_round.xml" value="0.28489583333333335" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/bg_button.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/bg_button_unselected.xml" value="0.3828125" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/bg_edittext.xml" value="0.3828125" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/header_doc.xml" value="0.3828125" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/ic_docasing.xml" value="0.3828125" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/ic_docs.xml" value="0.3828125" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/ic_nav_home.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/ic_vector.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/drawable/logo_secundary.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_date_picker.xml" value="0.33" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_detail_dieta.xml" value="0.5" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_detail_dieta_patient.xml" value="0.33" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_detail_report.xml" value="0.25" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_detail_search_patient.xml" value="0.33" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_dietas_list.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_home.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_home_dock.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_login.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_reports_list.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_speech_report.xml" value="0.33" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_terms.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_update.xml" value="0.33" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_user_create.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/activity_write_report.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/item_dietas.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/item_history.xml" value="0.2015625" />
+        <entry key="..\:/Users/jpmarchan/Desktop/smartreport/app/src/main/res/layout/item_reports.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.31302083333333336" />
         <entry key="app/src/main/res/layout/activity_detail_report.xml" value="0.3104166666666667" />
         <entry key="app/src/main/res/layout/activity_detail_search_patient.xml" value="0.3104166666666667" />

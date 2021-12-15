@@ -47,6 +47,27 @@ open class BaseActivity : AppCompatActivity() {
         }
         startActivity(mIntent)
     }
+    fun goTo1(
+        targetClass: Class<*>, isCleared: Boolean = false, extraLabel: String = "",
+        extraData: String = "", extraLabel1: String = "",
+        extraData1: String = ""
+    ) {
+        mIntent.setClass(this, targetClass)
+        if (isCleared) {
+            // use intent.apply {}
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        if (extraData.isNotEmpty()) {
+            mIntent.putExtra(extraLabel, extraData)
+        }
+        if (extraData1.isNotEmpty()) {
+            mIntent.putExtra(extraLabel1, extraData1)
+        }
+        startActivity(mIntent)
+    }
+
 
 
     fun showDialogProgress(message: String = "") {

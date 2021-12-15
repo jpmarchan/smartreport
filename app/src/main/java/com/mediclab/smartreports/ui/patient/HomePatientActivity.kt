@@ -113,7 +113,7 @@ class HomePatientActivity : BaseActivity() {
     }
     private fun onClickEvents() {
         imgListReports.setOnClickListener {
-            goTo(ReportsListActivity::class.java)
+            goTo(ReportsListActivity::class.java, true)
         }
     }
 

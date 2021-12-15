@@ -94,7 +94,7 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         response.body()?.let {
                             if (it.response) {
-                                singByRol(it.userId.toString(), it.userName, it.token, it.rol, it.status )
+                                singByRol(it.userId.toString(), it.userName, it.token, it.rol, it.status, it.age, it.departament )
                             } else {
                                 dismissDialog()
                                 showAlert()
@@ -114,7 +114,7 @@ class LoginActivity : BaseActivity() {
     }
 
 
-    private fun singByRol(id: String = "", userName : String = "", token: String = "", role: Int = 0, status: Boolean = false ){
+    private fun singByRol(id: String = "", userName : String = "", token: String = "", role: Int = 0, status: Boolean = false, age: Int = 0, departament: String = "" ){
         if(!status){
             dismissDialog()
             showToast("Aun no tiene autorizacion para ingresar.")
@@ -130,7 +130,11 @@ class LoginActivity : BaseActivity() {
                 Memory.delete("pass")
             }
             if(role == 1){
-                goTo(UpdateActivity::class.java, true)
+                if(age != 0 && departament != null){
+                    goTo(HomePatientActivity::class.java, true)
+                }else{
+                    goTo(UpdateActivity::class.java, true)
+                }
             }else{
                 goTo(HomeDocActivity::class.java, true)
             }

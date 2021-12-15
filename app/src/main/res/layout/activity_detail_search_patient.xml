@@ -288,20 +288,19 @@
     </LinearLayout>
 
 
-
     <CheckBox
         android:id="@+id/cbpatientd"
         style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:onClick="checkBoxClic1"
         android:text="Registrar como mi paciente"
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <TextView
@@ -310,7 +309,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="150dp"
         android:text="Emitir reporte"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/view3"
@@ -382,21 +381,24 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="152dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        style="@style/TextStyle"
+        android:layout_width="153dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:text="Nivel de hemoglobina Resultante*"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <TextView
         android:id="@+id/textHemoglobina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="22dp"
+        android:layout_height="18dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text=""
+        android:textColor="@drawable/bg_button"
+        style="@style/TextStyle"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 

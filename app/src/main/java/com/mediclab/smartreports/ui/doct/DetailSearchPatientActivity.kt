@@ -1,6 +1,5 @@
 package com.mediclab.smartreports.ui.doct
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -25,6 +24,7 @@ class DetailSearchPatientActivity : BaseActivity() {
     lateinit var dnidtitle : TextView
     lateinit var sexdtitle : TextView
     lateinit var agedtitle: TextView
+    lateinit var anemin: TextView
 
     lateinit var lpnd : TextView
     lateinit var tvEmpty1nd : TextView
@@ -75,7 +75,7 @@ class DetailSearchPatientActivity : BaseActivity() {
         docsimg = findViewById(R.id.textViewDocs)
         docsimgasing = findViewById(R.id.textViewDoc)
         btnsent = findViewById(R.id.btnsendreport)
-
+        anemin = findViewById(R.id.textHemoglobina)
         nameptitle = findViewById(R.id.textView4nd)
         dnidtitle = findViewById(R.id.textView5nd)
         sexdtitle = findViewById(R.id.textView13nd)
@@ -100,13 +100,8 @@ class DetailSearchPatientActivity : BaseActivity() {
                         if (response.isSuccessful) {
                             response.body()?.let {
                                 if(it.status){
-                                    if(statusRbReport){
                                         goTo(SpeechReportActivity::class.java,false,"idpatient","${idpaient}")
                                         showToast("Paciente asignado.")
-                                    }else{
-                                        goTo(WriteReportActivity::class.java,false,"idpatient","${idpaient}")
-                                        showToast("Paciente asignado.")
-                                    }
 
                                 }else{
                                     showToast("Error al asignar paciente")
@@ -120,11 +115,8 @@ class DetailSearchPatientActivity : BaseActivity() {
                     }
                 })
             }else{
-                if(statusRbReport){
                     goTo(SpeechReportActivity::class.java,false,"idpatient","${idpaient}")
-                }else{
-                    goTo(WriteReportActivity::class.java,false,"idpatient","${idpaient}")
-                }
+
             }
 
         }
@@ -149,6 +141,7 @@ class DetailSearchPatientActivity : BaseActivity() {
                             sexd.text = "Mujer"
                         }
                         aged.text = it.age.toString()
+                        anemin.text = it.aneminum.toString()
                         idpaient = it.id
                         responsefkidmedic  = it.fkidmedic
                     }
@@ -226,7 +219,6 @@ class DetailSearchPatientActivity : BaseActivity() {
         docsimg.visibility = View.VISIBLE
     }
     fun visivility(){
-        radioButton1.visibility = View.VISIBLE
         radioButton2.visibility = View.VISIBLE
         textView19d.visibility = View.VISIBLE
         btnsent.visibility = View.VISIBLE

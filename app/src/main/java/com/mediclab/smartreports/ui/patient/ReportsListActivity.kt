@@ -105,7 +105,7 @@ class ReportsListActivity : BaseActivity(), ReportsByPatientAdapter.OnItemClickL
     }
     private fun onClickEvents() {
         btnHome.setOnClickListener {
-            goTo(HomePatientActivity::class.java)
+            goTo(HomePatientActivity::class.java,true)
         }
     }
     private fun visibleReports(){

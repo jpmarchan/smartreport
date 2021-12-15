@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
-private const val URL = "http://4a76-190-234-106-97.ngrok.io"
+private const val URL = "http://ebab-190-234-106-97.ngrok.io"
 //private const val URL = "http://ffe518e21eca.ngrok.io"
 
 data class SignInParams(
@@ -14,13 +14,29 @@ data class SignInParams(
     val password: String
 )
 
+data class UpdateUser(
+    val sex: Boolean,
+    val age: Int,
+    val departament: String,
+    val id: Int,
+
+    )
+data class ResponseUpdateUser(
+    val message: String,
+    val status: Boolean,
+    )
+
+
+
 data class SignInResponse(
     val rol: Int,
     val response: Boolean,
     val token: String,
     val status: Boolean,
     val userId: Int,
-    val userName: String
+    val userName: String,
+    val age: Int,
+    val departament: String
 )
 
 // create users
@@ -49,6 +65,18 @@ data class OriginalReport(
     val namedoc: String,
     val lastnamedoc: String,
     val status: Boolean
+)
+
+data class DietaPatient(
+    val id: Int,
+    val name: String,
+    val description: String,
+    val desayuno: String,
+    val almuerzo: String,
+    val cena: String,
+    val ingredientesdesayuno: String,
+    val ingredientesalmuerzo: String,
+    val ingredientescena: String,
 )
 
 
@@ -86,6 +114,7 @@ data class ListPatientResponse(
     val sex: Boolean,
     val age: Int,
     val status: Boolean,
+    val aneminum: Int,
     val fkidmedic: Int
 )
 // Asignar paciente a medico
@@ -115,6 +144,21 @@ data class CreateReportResponse(
     val reponseCode: Boolean,
     val idReporOriginal: Int
 )
+
+data class CreateReceta(
+    val fecha: String,
+    val iddieta: String ?,
+    val idreport: String ? ,
+    val nivel :String
+)
+
+data class CreateRecetaResponse(
+    val responseMessage: String,
+    val reponseCode: Boolean,
+    val idcita: Int
+)
+
+
 //detalle reportes con reporte generado
 
 interface ApiService {
@@ -122,12 +166,22 @@ interface ApiService {
 
     @POST("sign")
     fun signIn(@Body signInParams: SignInParams): Call<SignInResponse>
+    //updateuser
+    @POST("updateUser")
+    fun updateUser( @Body UpdateUser: UpdateUser, @Header("x-access-token") token: String = Memory.token): Call<ResponseUpdateUser>
 
     @POST("users")
     fun createPatient(@Body CreatePatientParams: CreatePatientParams): Call<CreatePatientResponse>
 
     @GET("reportByPatient/{id}")
     fun getReportByPatient(@Header("x-access-token") token: String = Memory.token, @Path("id") patientId: String): Call<List<OriginalReport>>
+    @GET("getDietas")
+    fun getDietaPatient(@Header("x-access-token") token: String = Memory.token): Call<List<DietaPatient>>
+
+    @GET("getDietaById/{id}")
+    fun getDietaById(@Header("x-access-token") token: String = Memory.token, @Path("id") dietaId: String): Call<DietaPatient>
+    @GET("getDietaByIdreport/{id}")
+    fun getDietaByIdReport(@Header("x-access-token") token: String = Memory.token, @Path("id") dietaId: String): Call<DietaPatient>
 
     @GET("getReportByPatientOne/{id}")
     fun getReportByPatientOne(@Header("x-access-token") token: String = Memory.token, @Path("id") patientId: String): Call<OriginalReport>
@@ -151,6 +205,8 @@ interface ApiService {
     //Crear reporte
     @POST("report")
     fun report( @Body CreateReportParams: CreateReportParams, @Header("x-access-token") token: String = Memory.token): Call<CreateReportResponse>
+    @POST("createreceta")
+    fun createreceta( @Body CreateReceta: CreateReceta, @Header("x-access-token") token: String = Memory.token): Call<CreateRecetaResponse>
 
 
 }

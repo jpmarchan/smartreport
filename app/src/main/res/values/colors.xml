@@ -17,5 +17,6 @@
     <color name="primary">#e11f2c</color>
     <color name="report_original">#7879F1</color>
     <color name="report_generate">#F178B6</color>
+    <color name="background">#F8F8F8</color>
 
 </resources>

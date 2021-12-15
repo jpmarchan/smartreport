@@ -196,9 +196,10 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16">
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -207,8 +208,8 @@
 
 
             <TextView
-                style="@style/TextStyle"
                 android:id="@+id/textView14"
+                style="@style/TextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_marginStart="45dp"
@@ -216,6 +217,7 @@
                 android:layout_marginEnd="219dp"
                 android:background="@drawable/report_original"
                 android:paddingHorizontal="15dp"
+                android:visibility="gone"
                 android:text="Reporte mejorado:"
                 android:textColor="@color/bg"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -223,12 +225,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                style="@style/TextStyle"
                 android:id="@+id/txtreportimproved"
+                style="@style/TextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="45dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView14"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -243,6 +246,7 @@
                 android:text="Escuchar reporte"
                 android:textAllCaps="false"
                 android:textColor="@color/second_color"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@+id/txtreportimproved"
                 app:layout_constraintTop_toBottomOf="@+id/txtreportimproved" />
 
@@ -251,17 +255,18 @@
                 style="@style/TextStyle"
                 android:layout_width="137dp"
                 android:layout_height="19dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/report_generate"
                 android:paddingHorizontal="15dp"
                 android:text="Reporte original:"
                 android:textColor="@color/bg"
-                app:layout_constraintStart_toStartOf="@+id/textView14"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnSpeech" />
 
             <TextView
-                style="@style/TextStyle"
                 android:id="@+id/txtreportoriginal"
+                style="@style/TextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -282,6 +287,22 @@
                 android:textAllCaps="false"
                 android:textColor="@color/second_color"
                 app:layout_constraintStart_toStartOf="@+id/txtreportoriginal"
+                app:layout_constraintTop_toBottomOf="@+id/txtreportoriginal" />
+
+            <Button
+                android:id="@+id/dietassugeridas"
+                android:layout_width="142dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_button_selected"
+                android:text="Ver dieta sugerida >"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintStart_toEndOf="@+id/btnreportorigin"
                 app:layout_constraintTop_toBottomOf="@+id/txtreportoriginal" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

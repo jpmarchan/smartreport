@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/general"
+
     tools:context=".ui.doct.DatePickerActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imageView2"
@@ -46,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:text="Hola"
+            android:text="Selecciona la fecha  de culminación de la dieta."
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view2" />
@@ -65,7 +67,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:text="Doc" />
+            tools:text="" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -73,7 +75,7 @@
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,15 +83,22 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="273dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="24dp"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="406dp"
+        android:layout_height="75dp"
+        android:max="2"
+        android:progress="2"
+        android:progressBackgroundTint="@color/cardview_shadow_start_color"
+        android:progressTint="@color/cardview_dark_background"
+        android:splitTrack="false"
+        android:thumb="@drawable/ic_launcher_foreground"
+        android:thumbTint="@color/button_active"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
     <Button
-        android:id="@+id/btndatepicker"
+        android:id="@+id/btndatep"
         style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -105,4 +114,40 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Bajo"
+        app:layout_constraintEnd_toStartOf="@+id/textView33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:text="Medio"
+        app:layout_constraintEnd_toStartOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Alto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView33"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
